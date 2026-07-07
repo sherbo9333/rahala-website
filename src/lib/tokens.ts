@@ -5,11 +5,13 @@
  */
 
 export const MOTION = {
-  // Scroll-reveal: fade + rise 12px, one-directional, no bounce
+  // Section-level scroll reveal: fade + rise 40px, plays once,
+  // 0.6s ease-out. Consumed by the shared `Section` component so
+  // every section on the site animates in with identical timing.
   reveal: {
-    initial: { opacity: 0, y: 12 },
+    initial: { opacity: 0, y: 40 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },
   // Header compress-on-scroll
   header: {

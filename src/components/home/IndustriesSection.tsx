@@ -36,7 +36,7 @@ export function IndustriesSection() {
               key={`${industry.label}-${i}`}
               className="flex items-center gap-3 whitespace-nowrap rounded-full border border-gray-200 bg-white px-6 py-3 shadow-soft"
             >
-              <industry.icon size={20} className="text-blue-600" strokeWidth={1.75} />
+              <industry.icon size={20} aria-hidden="true" className="text-blue-600" strokeWidth={1.75} />
               <span className="font-arabic text-sm font-medium text-navy-900">{industry.label}</span>
             </div>
           ))}
@@ -51,7 +51,7 @@ export function IndustriesSection() {
               key={industry.label}
               className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 shadow-soft"
             >
-              <industry.icon size={18} className="text-blue-600" strokeWidth={1.75} />
+              <industry.icon size={18} aria-hidden="true" className="text-blue-600" strokeWidth={1.75} />
               <span className="font-arabic text-sm font-medium text-navy-900">{industry.label}</span>
             </div>
           ))}

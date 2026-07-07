@@ -14,17 +14,26 @@ interface CardProps {
 /**
  * Component Library Reference — Card.
  * Spec: 20px radius, white bg (or navy on dark sections), 1px gray-200
- * border, soft shadow at rest, lifts 4px + deeper shadow on hover, 200ms.
+ * border, soft shadow at rest. Hover polish: lifts 6px, shadow deepens,
+ * border brightens slightly — smooth 300ms transition (a touch slower
+ * than the button's 250ms since the card travels further).
+ *
+ * Always carries the `group` class (harmless when unused) so a nested
+ * IconBadge can cascade its own hover scale off the card's hover state
+ * instead of needing its own mouse listeners.
  */
 export function Card({ children, className, emphasized = false, variant = "light", hoverable = true }: CardProps) {
   return (
     <div
       className={cn(
-        "rounded-card p-6 md:p-8 shadow-soft transition-all duration-200 ease-out",
-        variant === "light" && "bg-white border border-gray-200",
-        variant === "dark" && "bg-navy-900/60 border border-white/10 text-white",
+        "group rounded-card p-6 md:p-8 shadow-soft transition-all duration-300 ease-out",
+        variant === "light" && "border border-gray-200",
+        variant === "light" && !emphasized && hoverable && "hover:border-gray-300",
+        variant === "light" && "bg-white",
+        variant === "dark" && "border border-white/10 bg-navy-900/60 text-white",
+        variant === "dark" && hoverable && "hover:border-white/20",
         emphasized && "border-gold-400",
-        hoverable && "hover:-translate-y-1 hover:shadow-soft-lg",
+        hoverable && "hover:-translate-y-1.5 hover:shadow-soft-lg",
         className
       )}
     >

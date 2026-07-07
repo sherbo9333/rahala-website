@@ -21,18 +21,39 @@ export const metadata: Metadata = {
     "تطوير المواقع",
   ],
   authors: [{ name: "رحالة للنمو الرقمي" }],
+  alternates: {
+    // Placeholder canonical for the root route; every page-level
+    // metadata export should set its own relative canonical the same way.
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
+    url: "/",
     locale: "ar_SA",
     siteName: "رحالة",
     title: "رحالة | شريكك الاستراتيجي في النمو الرقمي",
-    description:
-      "منظومة نمو رقمي متكاملة تجمع بين الاستراتيجية والتنفيذ والقياس.",
+    description: "منظومة نمو رقمي متكاملة تجمع بين الاستراتيجية والتنفيذ والقياس.",
+    // og:image is auto-populated from src/app/opengraph-image.tsx —
+    // no need to list it manually here.
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "رحالة | شريكك الاستراتيجي في النمو الرقمي",
+    description: "منظومة نمو رقمي متكاملة تجمع بين الاستراتيجية والتنفيذ والقياس.",
+    // twitter:image is likewise auto-populated from opengraph-image.tsx.
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  // icon/apple-icon are auto-detected from src/app/icon.png by Next.js's
+  // Metadata Files convention — no manual <link rel="icon"> needed.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

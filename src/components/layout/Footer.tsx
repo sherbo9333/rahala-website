@@ -32,7 +32,7 @@ export function Footer() {
           {infoItems.map((item) => (
             <div key={item.label} className="flex flex-col gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-                <item.icon size={18} className="text-gold-400" />
+                <item.icon size={18} aria-hidden="true" className="text-gold-400" />
               </div>
               <div>
                 <p className="font-arabic text-sm font-semibold text-gold-400">{item.label}</p>

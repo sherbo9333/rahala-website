@@ -1,3 +1,5 @@
+"use client";
+
 import { Check } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -28,7 +30,7 @@ export function FinalCtaSection() {
         <ul className="mt-8 flex flex-col items-center justify-center gap-3 font-arabic text-sm text-gray-300 sm:flex-row sm:gap-8">
           {checkpoints.map((point) => (
             <li key={point} className="flex items-center gap-2">
-              <Check size={16} className="text-gold-400" />
+              <Check size={16} aria-hidden="true" className="text-gold-400" />
               {point}
             </li>
           ))}

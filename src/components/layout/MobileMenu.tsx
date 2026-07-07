@@ -39,16 +39,23 @@ const itemVariants = {
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const [servicesExpanded, setServicesExpanded] = useState(false);
 
-  // Lock body scroll while the overlay is open.
+  // Lock body scroll while the overlay is open, and let Escape close it.
   useEffect(() => {
-    if (open) {
-      const original = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = original;
-      };
-    }
-  }, [open]);
+    if (!open) return;
+
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = original;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open, onClose]);
 
   return (
     <AnimatePresence>
@@ -70,7 +77,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               aria-label="إغلاق القائمة"
               className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
             >
-              <X size={24} />
+              <X size={24} aria-hidden="true" />
             </button>
           </div>
 
@@ -86,18 +93,21 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   <>
                     <button
                       onClick={() => setServicesExpanded((v) => !v)}
-                      className="flex min-h-[52px] w-full items-center justify-between py-3 text-right font-arabic text-lg font-medium text-white"
+                      className="flex min-h-[52px] w-full items-center justify-between py-3 text-right font-arabic text-lg font-medium text-white transition-colors duration-200 hover:text-gold-400"
                       aria-expanded={servicesExpanded}
+                      aria-controls="mobile-services-panel"
                     >
                       {item.label}
                       <ChevronDown
                         size={20}
+                        aria-hidden="true"
                         className={`transition-transform duration-200 ${servicesExpanded ? "rotate-180" : ""}`}
                       />
                     </button>
                     <AnimatePresence>
                       {servicesExpanded && (
                         <motion.div
+                          id="mobile-services-panel"
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -124,7 +134,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   <Link
                     href={item.href}
                     onClick={onClose}
-                    className="flex min-h-[52px] w-full items-center font-arabic text-lg font-medium text-white"
+                    className="flex min-h-[52px] w-full items-center font-arabic text-lg font-medium text-white transition-colors duration-200 hover:text-gold-400"
                   >
                     {item.label}
                   </Link>

@@ -21,6 +21,7 @@ export function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProps) {
     <AnimatePresence>
       {open && (
         <motion.div
+          id="services-mega-menu"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
