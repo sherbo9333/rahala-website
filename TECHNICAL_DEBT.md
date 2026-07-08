@@ -36,3 +36,16 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 ---
 
 *No new technical debt introduced in Phase 5.6 beyond TD-003.*
+
+---
+
+### TD-004 — Checklist-row pattern duplicated between Methodology and Why Rahala pages
+**Noted:** Phase 5.7 (Why Rahala)
+**Where:** `src/components/methodology/WhyProcessWorksSection.tsx` (frozen) vs. `src/components/why-rahala/CompetitiveAdvantagesSection.tsx` (new)
+**Detail:** Both render the same "CheckCircle2 icon + title + description" checklist-row visual pattern (matching the PDF's own check-marked list treatment of its Advantages content in both places). Consistent with the TD-003 precedent: the shared pattern isn't extracted into one component because doing so would require modifying Methodology's frozen file.
+**Fix:** If Methodology is ever reopened, extract a shared `ChecklistItem` (or similar) primitive and have both pages consume it. Until then, both are independently correct and pass all validation.
+**Severity:** Low — cosmetic duplication, not a functional or visual bug.
+
+---
+
+*No new technical debt introduced in Phase 5.7 beyond TD-004.*
