@@ -23,3 +23,16 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 ---
 
 *No new technical debt introduced in Phase 5.5 (Industries).*
+
+---
+
+### TD-003 — Timeline wrapper markup duplicated between Home and Methodology page
+**Noted:** Phase 5.6 (Methodology)
+**Where:** `src/components/home/MethodologySection.tsx` (frozen) vs. `src/components/methodology/ProcessTimelineSection.tsx` (new)
+**Detail:** Both components render the same horizontal/vertical `NumberedStep` arrangement (connecting line + responsive orientation switch). The actual repeated visual unit (`NumberedStep`) is properly reused in both places — only the surrounding grid/connecting-line wrapper (a small amount of markup) is duplicated. This is deliberate: extracting a shared `MethodologyTimeline` primitive would require modifying Home's `MethodologySection.tsx`, which is frozen this phase.
+**Fix:** If Home is ever reopened for other reasons, extract a shared `MethodologyTimeline` component (parameterized by whether to show the loop-back indicator) and have both Home and Methodology consume it.
+**Severity:** Low — cosmetic code duplication, not a functional or visual bug. Both components independently pass all validation.
+
+---
+
+*No new technical debt introduced in Phase 5.6 beyond TD-003.*
