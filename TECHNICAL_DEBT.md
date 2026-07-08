@@ -49,3 +49,7 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 ---
 
 *No new technical debt introduced in Phase 5.7 beyond TD-004.*
+
+---
+
+*Phase 5.8 (Contact): no new technical debt. `ContactInfoSection`'s icon+label+value pattern is conceptually similar to Footer's contact items, but the presentation differs enough (Card-grid vs. compact list) that this wasn't treated as the same class of duplication as TD-003/TD-004 — no shared component was reasonably extractable without a larger refactor of Footer itself, which is out of scope and frozen.*
