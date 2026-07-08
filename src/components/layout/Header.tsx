@@ -24,9 +24,10 @@ const MobileMenu = dynamic(() => import("@/components/layout/MobileMenu").then((
 
 interface HeaderProps {
   /**
-   * Some pages (e.g. Services Overview, Contact) open on a light
-   * section rather than a dark hero — pass false so the header is
-   * solid from the first frame instead of flashing transparent-white text.
+   * Auto-detected from the route by default (true only on "/", which is
+   * the only page with a dark hero behind the header). Only pass this
+   * explicitly to override the default for a page that doesn't fit the
+   * route-based assumption — normal pages shouldn't need to.
    */
   transparentOnTop?: boolean;
 }
@@ -43,13 +44,15 @@ interface HeaderProps {
  * keyboard users, since focusing the button previously did nothing.
  * It now also closes on Escape or when focus leaves the whole nav item.
  */
-export function Header({ transparentOnTop = true }: HeaderProps) {
+export function Header({ transparentOnTop }: HeaderProps) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrolled = useScrolled(24);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const effectiveTransparentOnTop = transparentOnTop ?? isHomePage;
 
-  const solid = scrolled || !transparentOnTop;
+  const solid = scrolled || !effectiveTransparentOnTop;
 
   // Close the Services mega-menu on Escape. Scoped to only listen while
   // it's actually open, so this adds no overhead the rest of the time.
