@@ -15,10 +15,10 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 
 ### TD-002 — Mega-menu and footer link to 6 service detail routes that don't exist yet
 **Noted:** Phase 5.1 (pre-existing), reconfirmed Phase 5.4
+**Status: RESOLVED in Phase 5.9.** All 6 `/services/[slug]` routes now exist and build successfully; verified the mega-menu's `/services/e-commerce` link resolves to a real page in the compiled output.
 **Where:** `src/data/navigation.ts` (`services[].href` → `/services/digital-strategy`, etc.), consumed by `Header`'s `ServicesMegaMenu`, `MobileMenu`, and `Footer`
-**Detail:** These six routes will 404 until individual service detail pages are built in a future phase. This is expected, pre-existing state from before Phase 5.4 — not a regression introduced by any completed phase.
-**Fix:** Build the six `/services/[slug]` pages in a future phase (not currently scoped).
-**Severity:** Low while the site isn't live; becomes Medium once deployed publicly (dead links from primary nav).
+**Detail (historical):** These six routes 404'd until Phase 5.9 built the individual service detail template.
+**Severity:** N/A — resolved.
 
 ---
 
@@ -53,3 +53,14 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 ---
 
 *Phase 5.8 (Contact): no new technical debt. `ContactInfoSection`'s icon+label+value pattern is conceptually similar to Footer's contact items, but the presentation differs enough (Card-grid vs. compact list) that this wasn't treated as the same class of duplication as TD-003/TD-004 — no shared component was reasonably extractable without a larger refactor of Footer itself, which is out of scope and frozen.*
+
+---
+
+### TD-005 — Service Detail template's process-timeline wrapper follows the same TD-003 pattern
+**Noted:** Phase 5.9 (Individual Service Detail Pages)
+**Where:** `src/components/services/ServiceProcessSection.tsx` (new)
+**Detail:** Same situation as TD-003: the actual repeated visual unit (`NumberedStep`) is properly reused, but the surrounding grid/connecting-line wrapper markup is independently written here too (a third copy, alongside Home's `MethodologySection` and the dedicated Methodology page's `ProcessTimelineSection`), since Home and Methodology are both frozen.
+**Fix:** If either frozen page is reopened, extract one shared `MethodologyTimeline` primitive (parameterized by loop-back on/off) consumed by all three call sites.
+**Severity:** Low — cosmetic duplication only.
+
+**Also note (not a defect, a resolved ambiguity):** this phase's instructions listed the e-commerce slug as `ecommerce`, but the existing (frozen) `services` array in `data/navigation.ts` already uses the href `/services/e-commerce`. Since the phase's own stated objective is that these pages "should satisfy every existing navigation link," the slug was implemented as `e-commerce` to match the existing frozen link exactly, rather than introducing a second, inconsistent spelling that would leave the current mega-menu/footer links broken.

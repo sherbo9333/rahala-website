@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { serviceDetails } from "@/data/service-details";
 
 const BASE_URL = "https://www.rahala.sa";
 
@@ -56,5 +57,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...serviceDetails.map((service) => ({
+      url: `${BASE_URL}/services/${service.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }
