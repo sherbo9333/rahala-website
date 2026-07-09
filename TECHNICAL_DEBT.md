@@ -78,3 +78,34 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 **Cookie Policy was deliberately not created.** Per the phase's own conditional instruction ("Only create Cookie Policy if it is referenced anywhere in the website or legally required by the approved project scope"): the site does not currently set any cookies, use any analytics/tracking scripts, or reference a cookie policy anywhere in its content or approved scope — so neither condition is met. The Privacy Policy's cookies section is written narrowly (only essential-cookie language) to stay accurate to this. If analytics/tracking is added in a future phase, a dedicated Cookie Policy should be created at that point.
 
 **Legal content caveat:** the Privacy Policy and Terms & Conditions contain generic, neutral legal boilerplate appropriate for a standard business website — not a substitute for review by qualified legal counsel before public launch. Placeholders like `[رقم السجل التجاري]` and `[تاريخ آخر تحديث]` are clearly marked and must be filled in before publication.
+
+---
+
+## Phase 5.12 — Production Optimization & SEO Audit
+
+Per this phase's explicit scope, verified bugs found during the audit were fixed directly (not just logged) — each is a measurable, objective issue (contrast ratio, broken link, unnecessary client bundle), not a subjective design change.
+
+### 🔴 CRITICAL — Fixed: sitewide broken primary CTA
+Every primary call-to-action across the **entire site** (Header, MobileMenu, Hero, and every instance of `FinalCtaSection` — present on Home, About, Services, Industries, Methodology, Why Rahala, Contact, and all 6 service detail pages) linked to `/get-started`, a route that was never built in any phase. This was the site's main conversion path, broken everywhere.
+**Interim fix applied:** repointed all `/get-started` references to `/contact` — a real, working page whose form already serves the same "start engaging with Rahala" intent.
+**Recommendation:** build a dedicated `/get-started` or `/consultation` landing page in a future phase (the original approved design spec envisioned this as a higher-intent page with an industry dropdown and budget field, distinct from the general Contact form) — see Production Recommendations in the Phase 5.12 delivery notes.
+
+### Fixed — WCAG contrast failures (color)
+- **`EyebrowLabel`** (used on nearly every page): gold-400 text on white/light backgrounds measured 2.4:1, failing WCAG AA even for large text (needs 3:1; normal text needs 4.5:1). Root cause: the component's `inverted` prop correctly adjusted the secondary "number" span's color for dark backgrounds but never adjusted the main label's color for light ones — the `inverted`-aware pattern existed but was incompletely applied. Fixed by adding a `gold-600` (#7D5F23) token — same hue, 5.94:1 on white — used automatically whenever `inverted` is false; `gold-400` unchanged for the dark-background case (7.8:1, already passing).
+- **`WhyRahalaSection`** and **`NumberedStep`** emphasized-state text: same gold-400-on-white-card issue, same fix (`gold-600`).
+- **Home's `IndustriesSection`** subtitle: `gray-500` sits directly on the section's `gray-50` background (4.43:1, just under the 4.5:1 threshold) rather than inside a white Card like every other gray-500 usage on the site. Fixed with a scoped one-off darker shade (`#5C6A80`, 5.11:1) rather than changing the `gray-500` token globally, since that token passes everywhere else it's used.
+
+### Fixed — Accessibility: missing nav landmark labels
+`Header`'s desktop `<nav>` and `MobileMenu`'s `<nav>` had no `aria-label`, unlike `StickySubNav` which already did. Fixed: both now have `aria-label="التنقل الرئيسي"`, so screen-reader users navigating by landmark can distinguish them from any other `<nav>` on the page (e.g. About's sticky sub-nav).
+
+### Fixed — Performance: 4 unnecessary `"use client"` directives
+`FinalCtaSection`, `IndustriesSection`, `MethodologySection`, and `ServicesPreviewSection` (Home) were all marked client components with zero hooks, event handlers, or browser-only APIs — verified by direct inspection before removing. These were added defensively during the Phase 5.2 polish pass (generalizing a fix that was only actually needed for `MetricsSection`, which does directly loop over a hook-using child). Removing the unnecessary directives measurably shrank every page's route-specific JS: Home nearly halved (8.61 kB → 3.82 kB); Industries, Methodology, and Services dropped ~72% (2.2 kB → ~0.6 kB each). Verified no regression: rebuilt and confirmed all content still renders correctly, and the RSC boundary bug this defensive pattern originally guarded against did not resurface.
+
+### Resolved: TD-001 (About page OG/Twitter metadata gap)
+Fixed in this phase — About now has the same explicit `openGraph`/`twitter` block every other page uses.
+
+### New structured data (JSON-LD) — Organization, WebSite, Breadcrumb, Service, ContactPage
+Added per this phase's explicit requirement. Organization + WebSite render sitewide (root layout); Breadcrumb renders on every non-Home page; Service renders on each of the 6 service detail pages; ContactPage renders on Contact. All verified as well-formed JSON via direct parsing of the compiled output, not just visual inspection.
+
+### Remaining (unchanged from prior phases)
+TD-002 (resolved Phase 5.9), TD-003, TD-004, TD-005 — all still low-severity, intentional, frozen-page-constrained duplication. No new instances of this class of debt found in this phase.

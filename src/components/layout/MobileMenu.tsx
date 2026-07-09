@@ -82,6 +82,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </div>
 
           <motion.nav
+            aria-label="التنقل الرئيسي"
             variants={listVariants}
             initial="hidden"
             animate="visible"
@@ -144,7 +145,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </motion.nav>
 
           <motion.div variants={itemVariants} className="px-5 pb-8 pt-4">
-            <Button href="/get-started" variant="primary" className="w-full justify-center bg-white text-navy-900 hover:bg-gold-400 hover:text-navy-900 hover:shadow-none">
+            <Button href="/contact" variant="primary" className="w-full justify-center bg-white text-navy-900 hover:bg-gold-400 hover:text-navy-900 hover:shadow-none">
               ابدأ شراكتك مع رحالة الآن
             </Button>
           </motion.div>

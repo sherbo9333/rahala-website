@@ -48,7 +48,7 @@ function NumberedStepComponent({
           emphasized ? "border-gold-400" : "border-gray-200"
         )}
       >
-        <h3 className={cn("font-arabic text-lg font-bold", emphasized ? "text-gold-400" : "text-navy-900")}>
+        <h3 className={cn("font-arabic text-lg font-bold", emphasized ? "text-gold-600" : "text-navy-900")}>
           {title}
         </h3>
         <p className="mt-2 font-arabic text-sm leading-relaxed text-gray-500">{description}</p>

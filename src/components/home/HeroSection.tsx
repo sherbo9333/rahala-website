@@ -67,7 +67,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div variants={item} className="mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-            <Button href="/get-started" variant="primary" className="justify-center bg-white text-navy-900 hover:bg-blue-600 hover:text-white">
+            <Button href="/contact" variant="primary" className="justify-center bg-white text-navy-900 hover:bg-blue-600 hover:text-white">
               ابدأ شراكتك الآن
             </Button>
             <Button href="/services" variant="ghost-light" className="justify-center">

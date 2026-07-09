@@ -30,7 +30,7 @@ export function WhyRahalaSection() {
           {whyRahalaCards.map((card) => (
             <Card key={card.title} emphasized={card.emphasized} className="h-full">
               <IconBadge icon={card.icon} tone={card.emphasized ? "gold" : "blue"} size="lg" className="mb-5" />
-              <h3 className={`font-arabic text-h3 ${card.emphasized ? "text-gold-400" : "text-navy-900"}`}>
+              <h3 className={`font-arabic text-h3 ${card.emphasized ? "text-gold-600" : "text-navy-900"}`}>
                 {card.title}
               </h3>
               <p className="mt-2 font-arabic text-[15px] leading-relaxed text-gray-500">{card.description}</p>

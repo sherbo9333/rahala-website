@@ -6,6 +6,8 @@ import { ContactInfoSection } from "@/components/contact/ContactInfoSection";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { WhyRahalaSection } from "@/components/home/WhyRahalaSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema, contactPageSchema } from "@/lib/structured-data";
 
 const title = "تواصل معنا";
 const description = "نسعد بخدمتك والإجابة على استفساراتك في أي وقت";
@@ -49,6 +51,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={contactPageSchema} />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "تواصل معنا", path: "/contact" },
+        ])}
+      />
       <Section background="white" id="contact-hero">
         <Container>
           <PageHeader eyebrow="CONTACT US" eyebrowLatin number="١٣" title={title} description={description} align="center" />

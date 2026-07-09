@@ -7,6 +7,8 @@ import { ServicesGridSection } from "@/components/services/ServicesGridSection";
 import { ServiceDetailsSection } from "@/components/services/ServiceDetailsSection";
 import { WhyRahalaSection } from "@/components/home/WhyRahalaSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "خدماتنا";
 const description = mission;
@@ -46,6 +48,12 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "خدماتنا", path: "/services" },
+        ])}
+      />
       <Section background="white" id="services-hero">
         <Container>
           <PageHeader eyebrow="OUR SERVICES" eyebrowLatin number="٠٦" title={title} description={description} />

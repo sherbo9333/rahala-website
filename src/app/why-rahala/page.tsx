@@ -7,6 +7,8 @@ import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 import { CompetitiveAdvantagesSection } from "@/components/why-rahala/CompetitiveAdvantagesSection";
 import { ClientMetricsRecap } from "@/components/why-rahala/ClientMetricsRecap";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = whyRahalaHero.title;
 const description = whyRahalaHero.description;
@@ -46,6 +48,12 @@ export const metadata: Metadata = {
 export default function WhyRahalaPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "لماذا رحالة؟", path: "/why-rahala" },
+        ])}
+      />
       <Section background="white" id="why-rahala-hero">
         <Container>
           <PageHeader eyebrow={whyRahalaHero.eyebrow} eyebrowLatin number="٠٨" title={title} description={description} />

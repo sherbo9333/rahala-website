@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { LegalSection } from "@/components/legal/LegalSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "الشروط والأحكام";
 const description = "تحكم هذه الشروط والأحكام استخدامك لموقع رحالة الإلكتروني وتعاملك مع خدماتنا.";
@@ -37,6 +39,12 @@ export const metadata: Metadata = {
 export default function TermsAndConditionsPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "الشروط والأحكام", path: "/terms-and-conditions" },
+        ])}
+      />
       <Section background="white" id="terms-hero">
         <Container>
           <PageHeader eyebrow="TERMS & CONDITIONS" eyebrowLatin title={title} description={description} />

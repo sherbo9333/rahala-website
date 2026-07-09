@@ -40,6 +40,13 @@ const config: Config = {
         gold: {
           DEFAULT: "#C9A24B",
           400: "#C9A24B",
+          /** WCAG contrast fix (Phase 5.12 audit): gold-400 is only
+           * 2.4:1 against white — fails AA even for large text. This
+           * darker shade on the same hue passes 5.94:1 on white while
+           * still reading as the brand's gold accent. Use 600 for gold
+           * text on light backgrounds; 400 remains correct for gold
+           * text on navy (7.8:1, already passes). */
+          600: "#7D5F23",
         },
         gray: {
           50: "#F5F7FA",

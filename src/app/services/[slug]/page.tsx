@@ -10,6 +10,8 @@ import { CheckList } from "@/components/ui/CheckList";
 import { ServiceProcessSection } from "@/components/services/ServiceProcessSection";
 import { RelatedServicesSection } from "@/components/services/RelatedServicesSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema, buildServiceSchema } from "@/lib/structured-data";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -70,6 +72,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   return (
     <>
+      <JsonLd data={buildServiceSchema(detail)} />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "خدماتنا", path: "/services" },
+          { name: detail.title, path: `/services/${detail.slug}` },
+        ])}
+      />
       <Section background="white" id="service-hero">
         <Container>
           <div className="flex flex-col items-center text-center">

@@ -31,7 +31,8 @@ export function EyebrowLabel({ children, number, className, inverted = false, la
       <span className="h-px w-8 bg-gold-400" aria-hidden="true" />
       <span
         className={cn(
-          "text-caption text-gold-400",
+          "text-caption",
+          inverted ? "text-gold-400" : "text-gold-600",
           latin ? "font-display uppercase tracking-[0.15em]" : "font-arabic"
         )}
       >

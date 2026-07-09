@@ -4,6 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { IndustriesGridSection } from "@/components/industries/IndustriesGridSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "القطاعات التي نخدمها";
 const description = "خبرة عميقة عبر طيف واسع من القطاعات الاقتصادية";
@@ -39,6 +41,12 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "القطاعات التي نخدمها", path: "/industries" },
+        ])}
+      />
       <Section background="white" id="industries-hero">
         <Container>
           <PageHeader eyebrow="INDUSTRIES" eyebrowLatin number="١٠" title={title} description={description} />

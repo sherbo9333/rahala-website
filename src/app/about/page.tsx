@@ -6,13 +6,27 @@ import { VisionSection } from "@/components/about/VisionSection";
 import { MissionSection } from "@/components/about/MissionSection";
 import { ValuesSection } from "@/components/about/ValuesSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
+
+const title = "من نحن";
+const description =
+  "تعرّف على قصة رحالة، رؤيتنا ورسالتنا، وقيمنا الجوهرية التي توجّه كل قرار نتخذه في رحلة النمو الرقمي مع عملائنا.";
 
 export const metadata: Metadata = {
-  title: "من نحن",
-  description:
-    "تعرّف على قصة رحالة، رؤيتنا ورسالتنا، وقيمنا الجوهرية التي توجّه كل قرار نتخذه في رحلة النمو الرقمي مع عملائنا.",
+  title,
+  description,
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    title: `${title} | رحالة`,
+    description,
+    url: "/about",
+  },
+  twitter: {
+    title: `${title} | رحالة`,
+    description,
   },
 };
 
@@ -31,6 +45,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={buildBreadcrumbSchema([{ name: "الرئيسية", path: "/" }, { name: "من نحن", path: "/about" }])} />
       <StickySubNav items={aboutAnchors} />
       <StorySection />
       <VisionSection />

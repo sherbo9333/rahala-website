@@ -1,5 +1,3 @@
-"use client";
-
 import { industries } from "@/data/industries";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -23,7 +21,14 @@ export function IndustriesSection() {
           INDUSTRIES
         </EyebrowLabel>
         <h2 className="mt-4 font-arabic text-h2 text-navy-900">القطاعات التي نخدمها</h2>
-        <p className="mt-4 max-w-2xl font-arabic text-body text-gray-500">
+        <p className="mt-4 max-w-2xl font-arabic text-body text-[#5C6A80]">
+          {/* WCAG contrast fix (Phase 5.12 audit): gray-500 on this
+              section's gray-50 background measures 4.43:1, just under
+              the 4.5:1 AA threshold for normal-size text. This is the
+              one place gray-500 sits directly on gray-50 rather than
+              inside a white Card, so a small one-off darkening (5.11:1)
+              is used here instead of changing the gray-500 token
+              itself, which passes everywhere else it's used. */}
           خبرة عميقة عبر طيف واسع من القطاعات الاقتصادية
         </p>
       </Container>

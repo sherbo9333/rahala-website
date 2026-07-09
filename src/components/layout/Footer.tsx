@@ -23,7 +23,7 @@ export function Footer() {
       <Container className="py-16 md:py-20">
         <div className="flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-12 md:flex-row md:items-center">
           <Logo variant="white" />
-          <Button href="/get-started" variant="ghost-light">
+          <Button href="/contact" variant="ghost-light">
             ابدأ شراكتك مع رحالة الآن
           </Button>
         </div>

@@ -81,7 +81,7 @@ export function Header({ transparentOnTop }: HeaderProps) {
         >
           <Logo variant={solid ? "navy" : "white"} />
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-8 lg:flex">
             {primaryNav.map((item) => {
               const isActive = pathname === item.href;
               if (item.children) {
@@ -135,7 +135,7 @@ export function Header({ transparentOnTop }: HeaderProps) {
 
           <div className="hidden lg:block">
             <Button
-              href="/get-started"
+              href="/contact"
               variant="primary"
               size="md"
               className={!solid ? "bg-white text-navy-900 hover:bg-navy-900 hover:text-white" : undefined}

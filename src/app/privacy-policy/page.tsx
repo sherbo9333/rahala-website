@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { LegalSection } from "@/components/legal/LegalSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "سياسة الخصوصية";
 const description = "توضح هذه الصفحة كيفية جمع رحالة للمعلومات واستخدامها وحمايتها عند تعاملك مع موقعنا وخدماتنا.";
@@ -37,6 +39,12 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "سياسة الخصوصية", path: "/privacy-policy" },
+        ])}
+      />
       <Section background="white" id="privacy-hero">
         <Container>
           <PageHeader eyebrow="PRIVACY POLICY" eyebrowLatin title={title} description={description} />

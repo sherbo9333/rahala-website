@@ -1,5 +1,3 @@
-"use client";
-
 import { Check } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -22,7 +20,7 @@ export function FinalCtaSection() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <Button href="/get-started" variant="primary" className="bg-white text-navy-900 hover:bg-gold-400 hover:text-navy-900 hover:shadow-none">
+          <Button href="/contact" variant="primary" className="bg-white text-navy-900 hover:bg-gold-400 hover:text-navy-900 hover:shadow-none">
             ابدأ شراكتك مع رحالة الآن
           </Button>
         </div>

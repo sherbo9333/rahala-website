@@ -7,6 +7,8 @@ import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 import { ProcessTimelineSection } from "@/components/methodology/ProcessTimelineSection";
 import { WhyProcessWorksSection } from "@/components/methodology/WhyProcessWorksSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "منهجيتنا";
 const description = methodologyCaption;
@@ -49,6 +51,12 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "الرئيسية", path: "/" },
+          { name: "منهجيتنا", path: "/methodology" },
+        ])}
+      />
       <Section background="white" id="methodology-hero">
         <Container>
           <PageHeader eyebrow="METHODOLOGY" eyebrowLatin number="٠٧" title={title} description={description} />
