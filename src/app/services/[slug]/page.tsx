@@ -38,12 +38,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       canonical: `/services/${detail.slug}`,
     },
     openGraph: {
-      title: `${detail.title} | رحالة`,
+      title: `${detail.title} | رسالة`,
       description: detail.description,
       url: `/services/${detail.slug}`,
     },
     twitter: {
-      title: `${detail.title} | رحالة`,
+      title: `${detail.title} | رسالة`,
       description: detail.description,
     },
   };

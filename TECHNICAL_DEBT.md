@@ -7,7 +7,7 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 ### TD-001 — About page's Open Graph/Twitter title doesn't reflect the page title
 **Noted:** Phase 5.4 (verifying Services page SEO)
 **Where:** `src/app/about/page.tsx`
-**Detail:** About's `metadata` export sets `title`/`description`/`alternates.canonical` but no explicit `openGraph`/`twitter` objects. Next.js does not deep-merge nested metadata fields from a child route into the parent's `openGraph`/`twitter` — so About's actual `og:title`/`twitter:title` tags currently fall back to the root layout's site-wide default ("رحالة | شريكك الاستراتيجي في النمو الرقمي") instead of "من نحن | رحالة". Services and Industries (built after this was noticed) both set explicit `openGraph`/`twitter` objects and don't have this gap.
+**Detail:** About's `metadata` export sets `title`/`description`/`alternates.canonical` but no explicit `openGraph`/`twitter` objects. Next.js does not deep-merge nested metadata fields from a child route into the parent's `openGraph`/`twitter` — so About's actual `og:title`/`twitter:title` tags currently fall back to the root layout's site-wide default ("رسالة | شريكك الاستراتيجي في النمو الرقمي") instead of "من نحن | رسالة". Services and Industries (built after this was noticed) both set explicit `openGraph`/`twitter` objects and don't have this gap.
 **Fix:** Add the same explicit `openGraph`/`twitter` block to About's metadata that Services/Industries already use. Low effort, purely additive, no visual/layout change — safe to do whenever About is reopened, or as a standalone metadata-only patch if you'd rather not wait.
 **Severity:** Low (doesn't affect the page itself, only how it previews when shared on social/search).
 
@@ -109,3 +109,19 @@ Added per this phase's explicit requirement. Organization + WebSite render sitew
 
 ### Remaining (unchanged from prior phases)
 TD-002 (resolved Phase 5.9), TD-003, TD-004, TD-005 — all still low-severity, intentional, frozen-page-constrained duplication. No new instances of this class of debt found in this phase.
+
+---
+
+## Brand name update — "رحالة" → "رسالة"
+
+Replaced every occurrence of the Arabic brand name "رحالة" with "رسالة" across all content: page titles, metadata, JSON-LD (Organization/WebSite names), hero wordmark, logo alt text, footer, mega-menu, legal pages, and code comments referencing the brand — verified zero remaining occurrences in both source and compiled output.
+
+**Deliberately NOT changed** (flagged to the client before proceeding, confirmed to continue):
+- **Logo artwork** (`logo-white.png`/`logo-navy.png`) — these are rendered graphics of the old wordmark, not editable text. A real rebrand needs new logo artwork designed from scratch.
+- **Domain and email** (`rahala.sa`, `info@rahala.sa`) — these are real, approved infrastructure. Fabricating a new domain/email by substitution would mean inventing contact details that likely don't exist.
+- **Source-code identifiers** — component names (`WhyRahalaSection`), file/folder paths (`src/app/why-rahala/`), and the live `/why-rahala` URL (already in the sitemap) were left as-is. These are code architecture, not brand-name content; renaming them would be a much larger structural refactor with real regression risk, and wasn't what was asked.
+- **Exception:** the JSON-LD `alternateName` field ("Rahala Digital Growth Company") *was* updated to "Resala Digital Growth Company" — unlike the identifiers above, this is a content value meant for search engines, not a code identifier, so it was updated for consistency with the Arabic name change.
+
+**Incidental bug found and fixed during verification:** Home's `<title>` tag was missing the "| رسالة" suffix that every other page correctly picks up from the root layout's title template — a pre-existing issue (present since Phase 5.2, unrelated to this rename) that happened to surface while spot-checking the rename's output. Fixed by setting Home's title explicitly rather than relying on template inheritance.
+
+**Recommendation:** if this is a genuine, permanent rebrand, a follow-up phase should (1) commission new logo artwork, (2) confirm and migrate to a real new domain/email, and (3) decide whether the `/why-rahala` route and related component/file names should be renamed to match — none of which could be done as part of a content-text replacement.

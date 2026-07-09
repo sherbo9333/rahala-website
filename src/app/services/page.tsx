@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     canonical: "/services",
   },
   openGraph: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
     url: "/services",
   },
   twitter: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
   },
 };

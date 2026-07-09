@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "رحالة — شريكك الاستراتيجي في النمو الرقمي";
+export const alt = "رسالة — شريكك الاستراتيجي في النمو الرقمي";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -20,7 +20,7 @@ const fontPath = join(
  *
  * The Arabic wordmark needs its font embedded explicitly — Satori
  * (the renderer behind ImageResponse) has no default Arabic-script
- * glyph coverage, so "رحالة" would render as empty boxes without this.
+ * glyph coverage, so "رسالة" would render as empty boxes without this.
  */
 export default async function OgImage() {
   const arabicFont = await readFile(fontPath);
@@ -42,7 +42,7 @@ export default async function OgImage() {
           RAHALA DIGITAL GROWTH
         </div>
         <div style={{ display: "flex", color: "#FFFFFF", fontSize: 130, fontFamily: "IBM Plex Sans Arabic", marginTop: 16 }}>
-          رحالة
+          رسالة
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "24px 0" }}>
           <div style={{ width: 40, height: 2, background: "#C9A24B" }} />

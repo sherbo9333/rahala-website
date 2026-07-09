@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "سياسة الخصوصية";
-const description = "توضح هذه الصفحة كيفية جمع رحالة للمعلومات واستخدامها وحمايتها عند تعاملك مع موقعنا وخدماتنا.";
+const description = "توضح هذه الصفحة كيفية جمع رسالة للمعلومات واستخدامها وحمايتها عند تعاملك مع موقعنا وخدماتنا.";
 
 export const metadata: Metadata = {
   title,
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     canonical: "/privacy-policy",
   },
   openGraph: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
     url: "/privacy-policy",
   },
   twitter: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
   },
 };
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
         <Container className="max-w-3xl">
           <LegalSection title="١. مقدمة">
             <p>
-              تحترم رحالة للنمو الرقمي («رحالة»، «نحن») خصوصية زوار موقعنا الإلكتروني وعملائنا. توضح هذه السياسة
+              تحترم رسالة للنمو الرقمي («رسالة»، «نحن») خصوصية زوار موقعنا الإلكتروني وعملائنا. توضح هذه السياسة
               أنواع المعلومات التي قد نجمعها، وكيفية استخدامها وحمايتها، والخيارات المتاحة لك بخصوص معلوماتك.
               باستخدامك لهذا الموقع، فإنك توافق على الممارسات الموضحة في هذه السياسة.
             </p>
@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
 
           <LegalSection title="٤. مشاركة المعلومات">
             <p>
-              لا تبيع رحالة معلوماتك الشخصية لأي طرف ثالث. قد تتم مشاركة المعلومات فقط مع مزودي الخدمة الذين
+              لا تبيع رسالة معلوماتك الشخصية لأي طرف ثالث. قد تتم مشاركة المعلومات فقط مع مزودي الخدمة الذين
               يساعدوننا في تشغيل أعمالنا (مثل استضافة الموقع)، وذلك في الحدود اللازمة لتقديم خدماتنا، أو عند
               الالتزام بذلك بموجب النظام في المملكة العربية السعودية.
             </p>
@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
                 {contactInfo.phone}
               </li>
               <li>{contactInfo.location}</li>
-              <li>الاسم النظامي: رحالة للنمو الرقمي — [رقم السجل التجاري]</li>
+              <li>الاسم النظامي: رسالة للنمو الرقمي — [رقم السجل التجاري]</li>
             </ul>
           </LegalSection>
         </Container>

@@ -9,20 +9,20 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rahala.sa"),
   title: {
-    default: "رحالة | شريكك الاستراتيجي في النمو الرقمي",
-    template: "%s | رحالة",
+    default: "رسالة | شريكك الاستراتيجي في النمو الرقمي",
+    template: "%s | رسالة",
   },
   description:
-    "رحالة شركة سعودية متخصصة في النمو الرقمي المتكامل، تجمع بين الاستراتيجية والتنفيذ والقياس في منظومة واحدة لتحقيق نمو رقمي حقيقي وقابل للقياس.",
+    "رسالة شركة سعودية متخصصة في النمو الرقمي المتكامل، تجمع بين الاستراتيجية والتنفيذ والقياس في منظومة واحدة لتحقيق نمو رقمي حقيقي وقابل للقياس.",
   keywords: [
-    "رحالة",
+    "رسالة",
     "النمو الرقمي",
     "التسويق الرقمي السعودية",
     "التجارة الإلكترونية",
     "الاستراتيجية الرقمية",
     "تطوير المواقع",
   ],
-  authors: [{ name: "رحالة للنمو الرقمي" }],
+  authors: [{ name: "رسالة للنمو الرقمي" }],
   alternates: {
     // Placeholder canonical for the root route; every page-level
     // metadata export should set its own relative canonical the same way.
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     locale: "ar_SA",
-    siteName: "رحالة",
-    title: "رحالة | شريكك الاستراتيجي في النمو الرقمي",
+    siteName: "رسالة",
+    title: "رسالة | شريكك الاستراتيجي في النمو الرقمي",
     description: "منظومة نمو رقمي متكاملة تجمع بين الاستراتيجية والتنفيذ والقياس.",
     // og:image is auto-populated from src/app/opengraph-image.tsx —
     // no need to list it manually here.
   },
   twitter: {
     card: "summary_large_image",
-    title: "رحالة | شريكك الاستراتيجي في النمو الرقمي",
+    title: "رسالة | شريكك الاستراتيجي في النمو الرقمي",
     description: "منظومة نمو رقمي متكاملة تجمع بين الاستراتيجية والتنفيذ والقياس.",
     // twitter:image is likewise auto-populated from opengraph-image.tsx.
   },

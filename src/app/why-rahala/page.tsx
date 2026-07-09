@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     canonical: "/why-rahala",
   },
   openGraph: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
     url: "/why-rahala",
   },
   twitter: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
   },
 };
@@ -51,7 +51,7 @@ export default function WhyRahalaPage() {
       <JsonLd
         data={buildBreadcrumbSchema([
           { name: "الرئيسية", path: "/" },
-          { name: "لماذا رحالة؟", path: "/why-rahala" },
+          { name: "لماذا رسالة؟", path: "/why-rahala" },
         ])}
       />
       <Section background="white" id="why-rahala-hero">

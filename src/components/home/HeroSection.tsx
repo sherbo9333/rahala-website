@@ -46,14 +46,14 @@ export function HeroSection() {
           </motion.div>
 
           <motion.p variants={item} className="font-arabic text-caption text-gold-400">
-            شركة رحالة للنمو الرقمي
+            شركة رسالة للنمو الرقمي
           </motion.p>
 
           <motion.h1
             variants={item}
             className="mt-6 font-arabic text-[3.5rem] font-extrabold leading-[1.05] text-white sm:text-display-lg"
           >
-            رحالة
+            رسالة
           </motion.h1>
 
           <motion.div variants={item} className="my-6 flex items-center gap-3" aria-hidden="true">

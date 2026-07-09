@@ -8,9 +8,9 @@ import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 
 export const metadata: Metadata = {
-  title: "الرئيسية",
+  title: "الرئيسية | رسالة",
   description:
-    "رحالة شركة سعودية متخصصة في النمو الرقمي المتكامل، تجمع بين الاستراتيجية والتنفيذ والقياس في منظومة واحدة لتحقيق نمو رقمي حقيقي وقابل للقياس.",
+    "رسالة شركة سعودية متخصصة في النمو الرقمي المتكامل، تجمع بين الاستراتيجية والتنفيذ والقياس في منظومة واحدة لتحقيق نمو رقمي حقيقي وقابل للقياس.",
   alternates: {
     canonical: "/",
   },

@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     canonical: "/contact",
   },
   openGraph: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
     url: "/contact",
   },
   twitter: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
   },
 };

@@ -146,7 +146,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
           <motion.div variants={itemVariants} className="px-5 pb-8 pt-4">
             <Button href="/contact" variant="primary" className="w-full justify-center bg-white text-navy-900 hover:bg-gold-400 hover:text-navy-900 hover:shadow-none">
-              ابدأ شراكتك مع رحالة الآن
+              ابدأ شراكتك مع رسالة الآن
             </Button>
           </motion.div>
         </motion.div>

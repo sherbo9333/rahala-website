@@ -30,13 +30,13 @@ export const methodologyCaption = "دورة تطوير مستمرة لتحقيق
  * the Methodology page's Overview section.
  */
 export const methodologyOverview =
-  "نؤمن في رحالة أن النمو الرقمي الحقيقي لا يتحقق من خلال جهد واحد معزول، بل من خلال اجتماع هذه الجهود كلها في منظومة واحدة تتحرك بانسجام نحو هدف واحد محدد سلفًا. حين نبني استراتيجية، نُصممها لتُنفَّذ فعليًا، لا لتبقى وثيقة. وحين ننفّذ، نقيس أثر كل خطوة على النتيجة النهائية. وحين نقيس، نستخدم ما نتعلمه لتحسين الدورة القادمة — ثم نعود لنفهم من جديد، بمعلومات أعمق مما كانت لدينا في البداية.";
+  "نؤمن في رسالة أن النمو الرقمي الحقيقي لا يتحقق من خلال جهد واحد معزول، بل من خلال اجتماع هذه الجهود كلها في منظومة واحدة تتحرك بانسجام نحو هدف واحد محدد سلفًا. حين نبني استراتيجية، نُصممها لتُنفَّذ فعليًا، لا لتبقى وثيقة. وحين ننفّذ، نقيس أثر كل خطوة على النتيجة النهائية. وحين نقيس، نستخدم ما نتعلمه لتحسين الدورة القادمة — ثم نعود لنفهم من جديد، بمعلومات أعمق مما كانت لدينا في البداية.";
 
 /**
  * SOURCE OF TRUTH: Company Profile PDF, "مزايانا التنافسية" slide.
  * Curated to the 3 (of 6) advantages that are specifically about how
  * the *process* is run — not team expertise, local presence, or tools,
- * which belong to the future dedicated "لماذا رحالة" page instead of
+ * which belong to the future dedicated "لماذا رسالة" page instead of
  * being fully duplicated here. See Phase 5.6 deviations note.
  */
 export const processAdvantages = [

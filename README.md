@@ -1,4 +1,4 @@
-# رحالة — Website (Phase 5.1: Foundation)
+# رسالة — Website (Phase 5.1: Foundation)
 
 Production codebase for the Rahala Digital Growth Company website.
 Stack: Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS · Framer Motion · Lucide React.

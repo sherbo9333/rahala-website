@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     canonical: "/methodology",
   },
   openGraph: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
     url: "/methodology",
   },
   twitter: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
   },
 };
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
  * specifically about how the process runs (integrated approach,
  * transparent reporting, on-time/on-budget delivery). The other 3
  * (team expertise, local market knowledge, world-class tools) are
- * reserved for the future dedicated "لماذا رحالة" page rather than
+ * reserved for the future dedicated "لماذا رسالة" page rather than
  * fully duplicated here.
  */
 export default function MethodologyPage() {

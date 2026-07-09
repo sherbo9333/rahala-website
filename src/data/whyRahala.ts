@@ -1,7 +1,7 @@
 import { Layers, TrendingUp, Link2 } from "lucide-react";
 
 /**
- * SOURCE OF TRUTH: Company Profile PDF, "لماذا تختار رحالة؟" slide.
+ * SOURCE OF TRUTH: Company Profile PDF, "لماذا تختار رسالة؟" slide.
  * Icons chosen to match the PDF's own glyphs as closely as lucide-react
  * allows (star→Layers for "integrated approach" reads clearer than a
  * literal star at icon-badge size; arrow-up→TrendingUp; link→Link2).

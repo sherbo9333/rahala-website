@@ -55,7 +55,7 @@ export const primaryNav: NavItem[] = [
   { label: "من نحن", href: "/about" },
   { label: "خدماتنا", href: "/services", children: services },
   { label: "القطاعات", href: "/industries" },
-  { label: "لماذا رحالة", href: "/why-rahala" },
+  { label: "لماذا رسالة", href: "/why-rahala" },
   { label: "منهجيتنا", href: "/methodology" },
   { label: "تواصل معنا", href: "/contact" },
 ];

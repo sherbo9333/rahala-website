@@ -11,8 +11,8 @@ const BASE_URL = "https://www.rahala.sa";
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "رحالة للنمو الرقمي",
-  alternateName: "Rahala Digital Growth Company",
+  name: "رسالة للنمو الرقمي",
+  alternateName: "Resala Digital Growth Company",
   url: BASE_URL,
   logo: `${BASE_URL}/assets/logo-navy.png`,
   contactPoint: [
@@ -36,7 +36,7 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "رحالة",
+  name: "رسالة",
   url: BASE_URL,
 };
 
@@ -71,7 +71,7 @@ export function buildServiceSchema(detail: ServiceDetail) {
     description: detail.description,
     provider: {
       "@type": "Organization",
-      name: "رحالة للنمو الرقمي",
+      name: "رسالة للنمو الرقمي",
       url: BASE_URL,
     },
     areaServed: "SA",

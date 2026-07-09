@@ -7,13 +7,13 @@ import { Layers, Users, ClipboardList, MapPin, Cpu, CalendarCheck } from "lucide
  * also seen on other slides where the rendered image was needed to
  * confirm correct reading order). Reconstructed here from the
  * rendered slide image reviewed during the design phase, not guessed:
- * eyebrow "WHY RAHALA", heading "لماذا رحالة؟", supporting line "أكثر
+ * eyebrow "WHY RAHALA", heading "لماذا رسالة؟", supporting line "أكثر
  * من مجرد وكالة... شريك استراتيجي للنمو", body: "نجمع بين الخبرة
  * المحلية والمعايير العالمية في منظومة متكاملة تضع مصلحة عملك أولًا."
  */
 export const whyRahalaHero = {
   eyebrow: "WHY RAHALA",
-  title: "لماذا رحالة؟",
+  title: "لماذا رسالة؟",
   description: "أكثر من مجرد وكالة... شريك استراتيجي للنمو",
 };
 
@@ -29,7 +29,7 @@ export const whyRahalaOverview =
  * for the full set.
  */
 export const competitiveAdvantagesSubhead =
-  "ما يجعل رحالة مختلفة ليس ما نقوله، بل ما يشهده عملاؤنا كل يوم في نتائجهم الفعلية.";
+  "ما يجعل رسالة مختلفة ليس ما نقوله، بل ما يشهده عملاؤنا كل يوم في نتائجهم الفعلية.";
 
 export const competitiveAdvantages = [
   {

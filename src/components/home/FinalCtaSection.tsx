@@ -16,12 +16,12 @@ export function FinalCtaSection() {
       <Container>
         <h2 className="font-arabic text-h2 text-white">ابدأ رحلة نموك الرقمي اليوم</h2>
         <p className="mx-auto mt-4 max-w-2xl font-arabic text-body text-gray-200">
-          رحالة شريكك في كل خطوة من رحلة نموك — من التخطيط الاستراتيجي إلى التنفيذ والقياس
+          رسالة شريكك في كل خطوة من رحلة نموك — من التخطيط الاستراتيجي إلى التنفيذ والقياس
         </p>
 
         <div className="mt-10 flex justify-center">
           <Button href="/contact" variant="primary" className="bg-white text-navy-900 hover:bg-gold-400 hover:text-navy-900 hover:shadow-none">
-            ابدأ شراكتك مع رحالة الآن
+            ابدأ شراكتك مع رسالة الآن
           </Button>
         </div>
 

@@ -6,7 +6,7 @@ import { IconBadge } from "@/components/ui/IconBadge";
 import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 
 /**
- * "لماذا تختار رحالة؟" — placed immediately after the hero because
+ * "لماذا تختار رسالة؟" — placed immediately after the hero because
  * trust needs to be earned before asking for further scroll commitment.
  * The middle card carries the gold-border emphasis, matching the PDF's
  * own visual treatment of that card.
@@ -21,7 +21,7 @@ export function WhyRahalaSection() {
     <Section background="white" id="why-rahala">
       <Container>
         <EyebrowLabel number="٠٢">فلسفتنا</EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">لماذا تختار رحالة؟</h2>
+        <h2 className="mt-4 font-arabic text-h2 text-navy-900">لماذا تختار رسالة؟</h2>
         <p className="mt-4 max-w-2xl font-arabic text-body text-gray-500">
           لأن النمو الحقيقي يتحقق عندما تجتمع الاستراتيجية والتنفيذ والقياس في منظومة واحدة.
         </p>

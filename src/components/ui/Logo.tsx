@@ -10,10 +10,10 @@ export function Logo({ variant = "white", className }: LogoProps) {
   const src = variant === "white" ? "/assets/logo-white.png" : "/assets/logo-navy.png";
 
   return (
-    <Link href="/" aria-label="رحالة — الصفحة الرئيسية" className={className}>
+    <Link href="/" aria-label="رسالة — الصفحة الرئيسية" className={className}>
       <Image
         src={src}
-        alt="رحالة"
+        alt="رسالة"
         width={140}
         height={79}
         priority

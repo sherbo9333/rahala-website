@@ -11,7 +11,7 @@ import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "من نحن";
 const description =
-  "تعرّف على قصة رحالة، رؤيتنا ورسالتنا، وقيمنا الجوهرية التي توجّه كل قرار نتخذه في رحلة النمو الرقمي مع عملائنا.";
+  "تعرّف على قصة رسالة، رؤيتنا ورسالتنا، وقيمنا الجوهرية التي توجّه كل قرار نتخذه في رحلة النمو الرقمي مع عملائنا.";
 
 export const metadata: Metadata = {
   title,
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
     url: "/about",
   },
   twitter: {
-    title: `${title} | رحالة`,
+    title: `${title} | رسالة`,
     description,
   },
 };
