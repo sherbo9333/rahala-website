@@ -79,7 +79,17 @@ export function Footer() {
           <p className="font-arabic text-xs text-white/40">
             © {new Date().getFullYear()} رحالة للنمو الرقمي. جميع الحقوق محفوظة.
           </p>
-          <p className="font-arabic text-xs text-white/40">شريكك الاستراتيجي في النمو الرقمي</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-arabic text-xs text-white/40">
+            <span>شريكك الاستراتيجي في النمو الرقمي</span>
+            <span aria-hidden="true">·</span>
+            <Link href="/privacy-policy" className="transition-colors hover:text-white/70">
+              سياسة الخصوصية
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/terms-and-conditions" className="transition-colors hover:text-white/70">
+              الشروط والأحكام
+            </Link>
+          </div>
         </div>
       </Container>
     </footer>

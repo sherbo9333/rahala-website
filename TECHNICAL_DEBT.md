@@ -64,3 +64,17 @@ Non-critical observations noted during later phases, deliberately **not** acted 
 **Severity:** Low — cosmetic duplication only.
 
 **Also note (not a defect, a resolved ambiguity):** this phase's instructions listed the e-commerce slug as `ecommerce`, but the existing (frozen) `services` array in `data/navigation.ts` already uses the href `/services/e-commerce`. Since the phase's own stated objective is that these pages "should satisfy every existing navigation link," the slug was implemented as `e-commerce` to match the existing frozen link exactly, rather than introducing a second, inconsistent spelling that would leave the current mega-menu/footer links broken.
+
+---
+
+*Phase 5.10 (Error Handling & Production Experience): no new technical debt. `not-found.tsx` and `error.tsx` reuse `PageHeader`/`Section`/`Container`/`Button` with no new duplication. `loading.tsx` was deliberately kept a Server Component (no hooks/interactivity needed) to avoid an unnecessary client bundle. No route-specific `loading.tsx` was added for `/services/[slug]`: all 6 slugs are statically generated via `generateStaticParams` with no async data fetching in the page, so navigation is instant and a dedicated loading state would never meaningfully render — the global `loading.tsx` already covers any edge case, and adding a duplicate would be unjustified per this phase's own "avoid unnecessary duplication" instruction.*
+
+---
+
+*Phase 5.11 (Legal Pages): no new technical debt.*
+
+**Footer was modified this phase** — explicitly authorized by the phase's own instruction ("If Privacy Policy or Terms links do not already exist in the footer: Add them"). Change was purely additive (two new links in the existing bottom legal row); the pre-existing tagline text was preserved, not removed. No visual restructuring.
+
+**Cookie Policy was deliberately not created.** Per the phase's own conditional instruction ("Only create Cookie Policy if it is referenced anywhere in the website or legally required by the approved project scope"): the site does not currently set any cookies, use any analytics/tracking scripts, or reference a cookie policy anywhere in its content or approved scope — so neither condition is met. The Privacy Policy's cookies section is written narrowly (only essential-cookie language) to stay accurate to this. If analytics/tracking is added in a future phase, a dedicated Cookie Policy should be created at that point.
+
+**Legal content caveat:** the Privacy Policy and Terms & Conditions contain generic, neutral legal boilerplate appropriate for a standard business website — not a substitute for review by qualified legal counsel before public launch. Placeholders like `[رقم السجل التجاري]` and `[تاريخ آخر تحديث]` are clearly marked and must be filled in before publication.
