@@ -23,7 +23,7 @@ export function IndustriesGridSection() {
     <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
       {industries.map((industry) => (
         <Card key={industry.label} hoverable className="flex flex-col items-center gap-4 text-center">
-          <IconBadge icon={industry.icon} tone="blue" size="lg" />
+          <IconBadge icon={industry.icon} tone="navy" size="lg" />
           <h3 className="font-arabic text-base font-semibold text-navy-900">{industry.label}</h3>
         </Card>
       ))}

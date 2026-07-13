@@ -33,7 +33,7 @@ function ServiceDetailRowComponent({ service, index }: ServiceDetailRowProps) {
       )}
     >
       <div className="flex shrink-0 items-center justify-center">
-        <IconBadge icon={service.icon} tone="blue" size="xl" />
+        <IconBadge icon={service.icon} tone="navy" size="xl" />
       </div>
       <div className="text-center md:text-start">
         <h3 className="font-arabic text-h3 text-navy-900">{service.label}</h3>

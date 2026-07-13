@@ -59,25 +59,31 @@ export default function MethodologyPage() {
       />
       <Section background="white" id="methodology-hero">
         <Container>
-          <PageHeader eyebrow="METHODOLOGY" eyebrowLatin number="٠٧" title={title} description={description} />
+          <PageHeader eyebrow="كيف نعمل" title={title} description={description} />
         </Container>
       </Section>
 
       <Section background="gray" id="methodology-overview">
         <Container>
           <h2 className="sr-only">نظرة عامة على منهجيتنا</h2>
-          <p className="mx-auto max-w-3xl text-center font-arabic text-xl leading-[1.9] text-navy-900">
-            {methodologyOverview}
-          </p>
+          <div className="relative mx-auto max-w-3xl rounded-card border border-gray-200 bg-white p-8 shadow-soft sm:p-12">
+            <span
+              aria-hidden="true"
+              className="absolute right-8 top-4 font-display text-6xl leading-none text-gold-400/25 sm:right-10"
+            >
+              &rdquo;
+            </span>
+            <p className="relative font-arabic text-xl leading-[1.9] text-navy-900">{methodologyOverview}</p>
+          </div>
         </Container>
       </Section>
 
       <Section background="white" id="methodology-timeline">
         <Container>
-          <EyebrowLabel number="٠٧" latin>
-            THE PROCESS
+          <EyebrowLabel>
+            رحلة العمل
           </EyebrowLabel>
-          <h2 className="mt-4 font-arabic text-h2 text-navy-900">رحلة العمل الكاملة</h2>
+          <h2 className="mt-5 font-arabic text-h2 text-navy-900">رحلة العمل الكاملة</h2>
           <div className="mt-14">
             <ProcessTimelineSection />
           </div>
@@ -86,10 +92,10 @@ export default function MethodologyPage() {
 
       <Section background="gray" id="why-process-works">
         <Container>
-          <EyebrowLabel number="١١" latin>
-            ADVANTAGES
+          <EyebrowLabel>
+            مزايانا
           </EyebrowLabel>
-          <h2 className="mt-4 font-arabic text-h2 text-navy-900">لماذا تنجح منهجيتنا</h2>
+          <h2 className="mt-5 font-arabic text-h2 text-navy-900">لماذا تنجح منهجيتنا</h2>
           <div className="mt-10">
             <WhyProcessWorksSection />
           </div>

@@ -56,7 +56,7 @@ export default function ServicesPage() {
       />
       <Section background="white" id="services-hero">
         <Container>
-          <PageHeader eyebrow="OUR SERVICES" eyebrowLatin number="٠٦" title={title} description={description} />
+          <PageHeader eyebrow="ما نقدمه" title={title} description={description} />
         </Container>
       </Section>
 

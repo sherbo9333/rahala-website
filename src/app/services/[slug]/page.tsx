@@ -83,11 +83,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <Section background="white" id="service-hero">
         <Container>
           <div className="flex flex-col items-center text-center">
-            <IconBadge icon={detail.icon} tone="blue" size="xl" className="mb-6" />
+            <IconBadge icon={detail.icon} tone="navy" size="xl" className="mb-6" />
             <PageHeader
-              eyebrow="OUR SERVICES"
-              eyebrowLatin
-              number="٠٦"
+              eyebrow="خدماتنا"
               title={detail.title}
               description={detail.description}
               align="center"
@@ -107,8 +105,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       <Section background="white" id="service-benefits">
         <Container>
-          <EyebrowLabel number="٠٦">أهم الفوائد</EyebrowLabel>
-          <h2 className="mt-4 font-arabic text-h2 text-navy-900">لماذا هذه الخدمة تهمك</h2>
+          <EyebrowLabel>أهم الفوائد</EyebrowLabel>
+          <h2 className="mt-5 font-arabic text-h2 text-navy-900">لماذا هذه الخدمة تهمك</h2>
           <div className="mt-10 max-w-xl">
             <CheckList items={detail.benefits.map((benefit) => ({ title: benefit }))} />
           </div>
@@ -117,10 +115,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       <Section background="gray" id="service-process">
         <Container>
-          <EyebrowLabel number="٠٧" latin>
-            OUR PROCESS
+          <EyebrowLabel>
+            خطوات التنفيذ
           </EyebrowLabel>
-          <h2 className="mt-4 font-arabic text-h2 text-navy-900">كيف ننفذ هذه الخدمة</h2>
+          <h2 className="mt-5 font-arabic text-h2 text-navy-900">كيف ننفذ هذه الخدمة</h2>
           <div className="mt-14">
             <ServiceProcessSection />
           </div>

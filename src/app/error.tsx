@@ -36,8 +36,7 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
         <AlertTriangle size={40} strokeWidth={1.25} className="mb-6 text-gold-400" aria-hidden="true" />
 
         <PageHeader
-          eyebrow="ERROR"
-          eyebrowLatin
+          eyebrow="خطأ"
           title="حدث خطأ غير متوقع"
           description="نعتذر عن الإزعاج، يمكنك المحاولة مرة أخرى أو العودة إلى الصفحة الرئيسية."
           align="center"

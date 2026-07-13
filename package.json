@@ -19,7 +19,8 @@
     "tailwind-merge": "^2.6.0",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
-    "@fontsource/ibm-plex-sans-arabic": "^5.2.9"
+    "@fontsource/ibm-plex-sans-arabic": "^5.2.9",
+    "resend": "^6.17.2"
   },
   "devDependencies": {
     "typescript": "^5.7.3",

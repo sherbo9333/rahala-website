@@ -28,7 +28,7 @@ export function ClientMetricsRecap() {
               value={metric.value}
               prefix={metric.prefix}
               suffix={metric.suffix}
-              className="font-display text-3xl font-extrabold text-blue-600 sm:text-4xl"
+              className="font-display text-3xl font-extrabold text-gold-600 sm:text-4xl"
             />
             <p className="mt-2 font-arabic text-sm font-semibold text-navy-900">{metric.label}</p>
           </div>

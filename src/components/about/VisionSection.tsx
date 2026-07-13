@@ -12,13 +12,15 @@ import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 export function VisionSection() {
   return (
     <Section background="navy" id="vision" className="text-center">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white" />
       <Container>
         <div className="flex justify-center">
-          <EyebrowLabel inverted number="٠٢">
+          <EyebrowLabel inverted>
             رؤيتنا
           </EyebrowLabel>
         </div>
-        <h2 className="mt-4 font-arabic text-h2 text-white">رؤيتنا</h2>
+        <h2 className="mt-5 font-arabic text-h2 text-white">رؤيتنا</h2>
 
         <div aria-hidden="true" className="mt-8 font-display text-6xl leading-none text-gold-400">
           &rdquo;

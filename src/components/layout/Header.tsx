@@ -69,19 +69,30 @@ export function Header({ transparentOnTop }: HeaderProps) {
     <>
       <header
         className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-200 ease-out",
-          solid ? "bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_theme(colors.gray.200)]" : "bg-transparent"
+          "sticky top-0 z-40 w-full transition-all duration-300 ease-out",
+          solid
+            ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_24px_rgba(11,18,32,0.06)]"
+            : "bg-gradient-to-b from-navy-900/80 via-navy-900/40 to-transparent backdrop-blur-[2px]"
         )}
       >
+        {/* Glass dissolve — replaces a hard border-b with a soft fade
+            extending below the header's own edge, so the navbar reads
+            as floating glass rather than a bar with a ruled line under it. */}
+        {solid && (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-full h-8 bg-gradient-to-b from-white/50 to-transparent"
+          />
+        )}
         <div
           className={cn(
             "mx-auto flex max-w-content items-center justify-between px-5 transition-all duration-200 ease-out md:px-8 xl:px-24",
-            solid ? "h-16" : "h-[88px]"
+            solid ? "h-20" : "h-24"
           )}
         >
           <Logo variant={solid ? "navy" : "white"} />
 
-          <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-10 lg:flex">
             {primaryNav.map((item) => {
               const isActive = pathname === item.href;
               if (item.children) {
@@ -96,9 +107,9 @@ export function Header({ transparentOnTop }: HeaderProps) {
                       onClick={() => setServicesOpen((v) => !v)}
                       onFocus={() => setServicesOpen(true)}
                       className={cn(
-                        "relative py-2 font-arabic text-[15px] font-medium transition-colors duration-200",
-                        solid ? "text-navy-900/80 hover:text-blue-600" : "text-white/90 hover:text-white",
-                        "after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-blue-600 after:transition-all after:duration-200 hover:after:w-full"
+                        "relative rounded-full px-3 py-2 font-arabic text-[15px] font-medium transition-all duration-200",
+                        solid ? "text-navy-900/80 hover:text-gold-600" : "text-white/90 hover:text-white",
+                        "after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-gold-600 after:transition-all after:duration-200 hover:after:w-4"
                       )}
                       aria-haspopup="true"
                       aria-expanded={servicesOpen}
@@ -115,16 +126,16 @@ export function Header({ transparentOnTop }: HeaderProps) {
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "relative py-2 font-arabic text-[15px] font-medium transition-colors duration-200",
+                    "relative rounded-full px-3 py-2 font-arabic text-[15px] font-medium transition-all duration-200",
                     isActive
                       ? solid
-                        ? "text-blue-600"
-                        : "text-white"
+                        ? "bg-navy-900/[0.08] text-navy-900"
+                        : "bg-white/15 text-white"
                       : solid
-                        ? "text-navy-900/80 hover:text-blue-600"
+                        ? "text-navy-900/80 hover:text-gold-600"
                         : "text-white/90 hover:text-white",
-                    "after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:-translate-x-1/2 after:bg-blue-600 after:transition-all after:duration-200",
-                    isActive ? "after:w-full" : "after:w-0 hover:after:w-full"
+                    "after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:-translate-x-1/2 after:bg-gold-600 after:transition-all after:duration-200",
+                    isActive ? "after:w-0" : "after:w-0 hover:after:w-4"
                   )}
                 >
                   {item.label}

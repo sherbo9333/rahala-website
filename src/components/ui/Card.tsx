@@ -26,13 +26,14 @@ export function Card({ children, className, emphasized = false, variant = "light
   return (
     <div
       className={cn(
-        "group rounded-card p-6 md:p-8 shadow-soft transition-all duration-300 ease-out",
+        "group rounded-card p-6 md:p-8 shadow-soft transition-all duration-300 ease-out-soft",
         variant === "light" && "border border-gray-200",
         variant === "light" && !emphasized && hoverable && "hover:border-gray-300",
         variant === "light" && "bg-white",
         variant === "dark" && "border border-white/10 bg-navy-900/60 text-white",
         variant === "dark" && hoverable && "hover:border-white/20",
         emphasized && "border-gold-400",
+        emphasized && hoverable && "hover:shadow-glow-gold",
         hoverable && "hover:-translate-y-1.5 hover:shadow-soft-lg",
         className
       )}

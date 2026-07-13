@@ -37,9 +37,9 @@ export function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProps) {
                 onClick={onClose}
                 className="group flex items-start gap-4 rounded-card p-4 transition-colors hover:bg-gray-50"
               >
-                <IconBadge icon={service.icon} tone="blue" />
+                <IconBadge icon={service.icon} tone="navy" />
                 <div>
-                  <p className="font-arabic text-base font-semibold text-navy-900 group-hover:text-blue-600">
+                  <p className="font-arabic text-base font-semibold text-navy-900 group-hover:text-gold-600">
                     {service.label}
                   </p>
                   <p className="mt-1 font-arabic text-sm leading-relaxed text-gray-500">

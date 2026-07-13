@@ -15,8 +15,8 @@ export function ServiceDetailsSection() {
   return (
     <Section background="white" id="service-details">
       <Container>
-        <EyebrowLabel number="٠٦">تفاصيل الخدمات</EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">كيف نساعدك في كل خدمة</h2>
+        <EyebrowLabel>تفاصيل الخدمات</EyebrowLabel>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">كيف نساعدك في كل خدمة</h2>
 
         <div className="mt-10">
           {services.map((service, index) => (

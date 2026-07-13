@@ -24,12 +24,27 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 /**
  * Component Library Reference — Primary / Ghost button.
- * Spec: 14px radius, hover → blue-600 fill + cyan glow (primary),
- * hover → navy fill @8% opacity (ghost). Brand colors unchanged from
- * the approved spec — this pass only adds motion/state polish:
+ * Spec: 14px radius, hover → gold fill + gold glow (primary), hover →
+ * navy fill @8% opacity (ghost).
+ *
+ * Phase 6.3: primary hover moved from blue-600/cyan-glow to
+ * gold-600/gold-glow, matching the brand's actual Deep Navy / White /
+ * Warm Gold palette (verified 5.94:1 contrast for white text on
+ * gold-600 — safe).
+ *
+ * Focus-visible outline deliberately kept as blue-600, not changed to
+ * a brand color: Button is reused across both light and dark
+ * backgrounds (including instances with a custom light bg placed on a
+ * navy page section), and neither navy nor gold has a single shade
+ * that stays clearly visible as an outline in every one of those
+ * contexts — navy would vanish on navy, gold clears WCAG on navy but
+ * only marginally on white. Blue-600 keeps working as a genuinely
+ * neutral, always-visible focus indicator, which is arguably what a
+ * functional accessibility affordance should be rather than a brand
+ * color statement.
+ *
  *  - hover: lifts 2px (-translate-y-0.5) + a subtle shadow, 250ms ease
  *  - active: settles back down and scales to 0.98 (reads as a real press)
- *  - focus-visible: 2px blue-600 outline, offset 2px (unchanged, already spec-compliant)
  *  - disabled: 50% opacity, no pointer events, no lift/shadow
  *  - min-h-11 (44px) guarantees a compliant tap target at every size
  *
@@ -41,13 +56,13 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
   ({ variant = "primary", size = "lg", className, children, href, ...props }, ref) => {
     const base = cn(
       "inline-flex min-h-11 items-center justify-center gap-2 rounded-button font-display font-semibold",
-      "transition-all duration-[250ms] ease-out",
+      "transition-all duration-[250ms] ease-out-soft",
       "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600",
       "disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-50 disabled:shadow-none",
       size === "lg" ? "px-8 py-4 text-base" : "px-6 py-3 text-sm",
       variant === "primary" &&
-        "bg-navy-900 text-white hover:bg-blue-600 hover:shadow-glow-cyan",
+        "bg-navy-900 text-white hover:bg-gold-600 hover:shadow-glow-gold",
       variant === "ghost" &&
         "border-[1.5px] border-navy-900 text-navy-900 bg-transparent hover:bg-navy-900/[0.08] hover:shadow-soft",
       variant === "ghost-light" &&

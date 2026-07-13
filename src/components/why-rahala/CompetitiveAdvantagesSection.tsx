@@ -25,7 +25,7 @@ export function CompetitiveAdvantagesSection() {
             key={advantage.title}
             className={cn("flex items-start gap-4", isReversed && "sm:flex-row-reverse")}
           >
-            <CheckCircle2 size={22} aria-hidden="true" className="mt-1 shrink-0 text-blue-600" strokeWidth={1.75} />
+            <CheckCircle2 size={22} aria-hidden="true" className="mt-1 shrink-0 text-navy-900" strokeWidth={1.75} />
             <div>
               <h3 className="font-arabic text-lg font-semibold text-navy-900">{advantage.title}</h3>
               <p className="mt-1 font-arabic text-[15px] leading-relaxed text-gray-500">{advantage.description}</p>

@@ -18,10 +18,10 @@ export function ServicesPreviewSection() {
   return (
     <Section background="gray" id="services">
       <Container>
-        <EyebrowLabel number="٠٦" latin>
-          OUR SERVICES
+        <EyebrowLabel>
+          ما نقدمه
         </EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">خدماتنا</h2>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">خدماتنا</h2>
 
         {/* Mobile: snap-scroll carousel */}
         <div className="mt-10 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:hidden">

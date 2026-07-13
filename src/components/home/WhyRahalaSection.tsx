@@ -20,16 +20,16 @@ export function WhyRahalaSection() {
   return (
     <Section background="white" id="why-rahala">
       <Container>
-        <EyebrowLabel number="٠٢">فلسفتنا</EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">لماذا تختار رسالة؟</h2>
-        <p className="mt-4 max-w-2xl font-arabic text-body text-gray-500">
+        <EyebrowLabel>فلسفتنا</EyebrowLabel>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">لماذا تختار رسالة؟</h2>
+        <p className="mt-5 max-w-2xl font-arabic text-body text-gray-500">
           لأن النمو الحقيقي يتحقق عندما تجتمع الاستراتيجية والتنفيذ والقياس في منظومة واحدة.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {whyRahalaCards.map((card) => (
             <Card key={card.title} emphasized={card.emphasized} className="h-full">
-              <IconBadge icon={card.icon} tone={card.emphasized ? "gold" : "blue"} size="lg" className="mb-5" />
+              <IconBadge icon={card.icon} tone={card.emphasized ? "gold" : "navy"} size="lg" className="mb-5" />
               <h3 className={`font-arabic text-h3 ${card.emphasized ? "text-gold-600" : "text-navy-900"}`}>
                 {card.title}
               </h3>

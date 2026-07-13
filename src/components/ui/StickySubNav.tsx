@@ -20,7 +20,7 @@ interface StickySubNavProps {
  * gray-50 fill. Reusable wherever a page needs anchor-based sub-nav
  * (not About-specific).
  *
- * Sticks at top-16 (64px) — the header's compact height, which is
+ * Sticks at top-20 — the header's compact height, which is
  * also its *only* height on any non-Home route (Header forces solid
  * immediately off Home), so this offset is reliable without needing
  * to read the header's live height.
@@ -56,7 +56,7 @@ export function StickySubNav({ items, className }: StickySubNavProps) {
     <nav
       aria-label="التنقل داخل الصفحة"
       className={cn(
-        "sticky top-16 z-30 border-b border-gray-200 bg-white/95 py-3 backdrop-blur-md",
+        "sticky top-20 z-30 border-b border-gray-200 bg-white/95 py-3 backdrop-blur-md",
         className
       )}
     >

@@ -36,7 +36,7 @@ export function Section({ children, className, background = "white", as: Tag = "
     <Tag
       id={id}
       className={cn(
-        "scroll-mt-20 py-12 md:py-16 lg:py-20",
+        "relative scroll-mt-20 py-12 md:py-16 lg:py-20",
         background === "white" && "bg-white",
         background === "gray" && "bg-gray-50",
         background === "navy" && "bg-navy-900 text-white",

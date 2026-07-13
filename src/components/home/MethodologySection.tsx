@@ -20,11 +20,11 @@ export function MethodologySection() {
   return (
     <Section background="white" id="methodology-preview">
       <Container>
-        <EyebrowLabel number="٠٧" latin>
-          METHODOLOGY
+        <EyebrowLabel>
+          كيف نعمل
         </EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">منهجيتنا</h2>
-        <p className="mt-4 max-w-2xl font-arabic text-body text-gray-500">{methodologyCaption}</p>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">منهجيتنا</h2>
+        <p className="mt-5 max-w-2xl font-arabic text-body text-gray-500">{methodologyCaption}</p>
 
         {/* Desktop/tablet: horizontal with connecting line */}
         <div className="relative mt-14 hidden md:grid md:grid-cols-5 md:gap-6">

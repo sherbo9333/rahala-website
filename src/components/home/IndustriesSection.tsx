@@ -2,26 +2,31 @@ import { industries } from "@/data/industries";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
+import { Card } from "@/components/ui/Card";
+import { IconBadge } from "@/components/ui/IconBadge";
 
 /**
- * Industries directory preview on Home. Desktop/tablet: slow
- * auto-scrolling marquee that pauses on hover (CSS animation, not JS,
- * for performance). Mobile: static 2-row wrapped chip layout — no
- * auto-scroll on touch devices, since a moving element a user can't
- * easily pause is bad UX on mobile.
+ * Industries directory preview on Home.
+ *
+ * Phase 6.0 redesign: replaced the auto-scrolling marquee with a
+ * staggered card grid — alternating columns sit at a slightly
+ * different vertical offset (pure CSS via nth-child, no JS) for a
+ * "floating" bento feel with real depth, instead of a generic
+ * slider. Reuses the same Card + IconBadge components as every other
+ * card on the site, so hover lift/border-brighten/icon-scale behavior
+ * is automatically consistent — no new interaction patterns invented.
+ *
+ * Kept as a Server Component (no motion/hooks needed for the stagger
+ * itself), consistent with the Phase 5.12 performance audit's
+ * findings about unnecessary client components.
  */
 export function IndustriesSection() {
-  // Duplicate the list once so the marquee loop is seamless.
-  const marqueeItems = [...industries, ...industries];
-
   return (
-    <Section background="gray" id="industries" className="overflow-hidden">
+    <Section background="gray" id="industries">
       <Container>
-        <EyebrowLabel number="١٠" latin>
-          INDUSTRIES
-        </EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">القطاعات التي نخدمها</h2>
-        <p className="mt-4 max-w-2xl font-arabic text-body text-[#5C6A80]">
+        <EyebrowLabel>خبرتنا</EyebrowLabel>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">القطاعات التي نخدمها</h2>
+        <p className="mt-5 max-w-2xl font-arabic text-body text-[#5C6A80]">
           {/* WCAG contrast fix (Phase 5.12 audit): gray-500 on this
               section's gray-50 background measures 4.43:1, just under
               the 4.5:1 AA threshold for normal-size text. This is the
@@ -31,34 +36,18 @@ export function IndustriesSection() {
               itself, which passes everywhere else it's used. */}
           خبرة عميقة عبر طيف واسع من القطاعات الاقتصادية
         </p>
-      </Container>
 
-      {/* Desktop/tablet marquee */}
-      <div className="group relative mt-12 hidden md:block">
-        <div className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused]">
-          {marqueeItems.map((industry, i) => (
-            <div
-              key={`${industry.label}-${i}`}
-              className="flex items-center gap-3 whitespace-nowrap rounded-full border border-gray-200 bg-white px-6 py-3 shadow-soft"
-            >
-              <industry.icon size={20} aria-hidden="true" className="text-blue-600" strokeWidth={1.75} />
-              <span className="font-arabic text-sm font-medium text-navy-900">{industry.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile: static wrapped chips */}
-      <Container className="mt-10 md:hidden">
-        <div className="flex flex-wrap gap-3">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 lg:gap-6 [&>*:nth-child(2n)]:sm:mt-6 [&>*:nth-child(3n)]:lg:mt-0 [&>*:nth-child(4n)]:lg:mt-6">
           {industries.map((industry) => (
-            <div
+            <Card
               key={industry.label}
-              className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 shadow-soft"
+              className="flex flex-col items-center gap-3 p-5 text-center sm:p-6"
             >
-              <industry.icon size={18} aria-hidden="true" className="text-blue-600" strokeWidth={1.75} />
-              <span className="font-arabic text-sm font-medium text-navy-900">{industry.label}</span>
-            </div>
+              <IconBadge icon={industry.icon} tone="navy" size="lg" />
+              <span className="font-arabic text-sm font-medium text-navy-900 sm:text-base">
+                {industry.label}
+              </span>
+            </Card>
           ))}
         </div>
       </Container>

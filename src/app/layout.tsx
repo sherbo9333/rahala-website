@@ -7,7 +7,7 @@ import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.rahala.sa"),
+  metadataBase: new URL("https://resalaagency.com"),
   title: {
     default: "رسالة | شريكك الاستراتيجي في النمو الرقمي",
     template: "%s | رسالة",

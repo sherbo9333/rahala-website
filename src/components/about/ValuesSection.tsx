@@ -16,16 +16,16 @@ export function ValuesSection() {
   return (
     <Section background="gray" id="values">
       <Container>
-        <EyebrowLabel number="٠٤" latin>
-          CORE VALUES
+        <EyebrowLabel>
+          مبادئنا
         </EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">قيمنا الجوهرية</h2>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">قيمنا الجوهرية</h2>
 
         <div className="mt-10 flex flex-wrap justify-center gap-6">
           {coreValues.map((value) => (
             <div key={value.title} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
               <Card className="h-full" variant="light">
-                <IconBadge icon={value.icon} tone="blue" size="lg" className="mb-5" />
+                <IconBadge icon={value.icon} tone="navy" size="lg" className="mb-5" />
                 <h3 className="font-arabic text-h3 text-navy-900">{value.title}</h3>
                 <p className="mt-2 font-arabic text-[15px] leading-relaxed text-gray-500">{value.description}</p>
               </Card>

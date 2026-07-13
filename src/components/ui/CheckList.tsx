@@ -27,7 +27,7 @@ export function CheckList({ items, className }: CheckListProps) {
     <div className={cn("flex flex-col gap-5", className)}>
       {items.map((item) => (
         <div key={item.title} className="flex items-start gap-3">
-          <CheckCircle2 size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-blue-600" strokeWidth={1.75} />
+          <CheckCircle2 size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-navy-900" strokeWidth={1.75} />
           <div>
             <p className="font-arabic text-[15px] font-medium text-navy-900">{item.title}</p>
             {item.description && (

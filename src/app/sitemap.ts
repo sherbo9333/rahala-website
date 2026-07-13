@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { serviceDetails } from "@/data/service-details";
 
-const BASE_URL = "https://www.rahala.sa";
+const BASE_URL = "https://resalaagency.com";
 
 /**
  * Deliberately lists only routes that actually exist right now (just

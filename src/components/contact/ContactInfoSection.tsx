@@ -23,13 +23,13 @@ export function ContactInfoSection() {
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => (
         <Card key={item.label} className="flex flex-col items-center gap-3 text-center">
-          <IconBadge icon={item.icon} tone="blue" size="lg" />
+          <IconBadge icon={item.icon} tone="navy" size="lg" />
           <h3 className="font-arabic text-base font-semibold text-navy-900">{item.label}</h3>
           {item.href ? (
             <a
               href={item.href}
               dir="ltr"
-              className="font-arabic text-[15px] text-gray-500 transition-colors hover:text-blue-600"
+              className="font-arabic text-[15px] text-gray-500 transition-colors hover:text-gold-600"
             >
               {item.value}
             </a>

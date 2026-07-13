@@ -60,7 +60,7 @@ export default function ContactPage() {
       />
       <Section background="white" id="contact-hero">
         <Container>
-          <PageHeader eyebrow="CONTACT US" eyebrowLatin number="١٣" title={title} description={description} align="center" />
+          <PageHeader eyebrow="لنتحدث" title={title} description={description} align="center" />
         </Container>
       </Section>
 

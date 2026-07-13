@@ -1,7 +1,7 @@
 import { contactInfo } from "@/data/navigation";
 import type { ServiceDetail } from "@/data/service-details";
 
-const BASE_URL = "https://www.rahala.sa";
+const BASE_URL = "https://resalaagency.com";
 
 /**
  * Sitewide Organization schema — rendered once, in the root layout,

@@ -5,11 +5,14 @@
  */
 
 export const MOTION = {
-  // Section-level scroll reveal: fade + rise 40px, plays once,
+  // Section-level scroll reveal: fade + rise 26px, plays once,
   // 0.6s ease-out. Consumed by the shared `Section` component so
   // every section on the site animates in with identical timing.
+  // Phase 6.3: softened from 40px to 26px — the larger offset read as
+  // a bigger jump than "subtle", per direct feedback to keep motion
+  // restrained throughout.
   reveal: {
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 0, y: 26 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },

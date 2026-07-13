@@ -18,8 +18,8 @@ export function StorySection() {
   return (
     <Section background="white" id="story">
       <Container>
-        <EyebrowLabel number="٠١">قصتنا</EyebrowLabel>
-        <h1 className="mt-4 font-arabic text-h2 text-navy-900">قصتنا</h1>
+        <EyebrowLabel>قصتنا</EyebrowLabel>
+        <h1 className="mt-5 font-arabic text-h2 text-navy-900">قصتنا</h1>
 
         <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-16">
           <div className="flex flex-col gap-5 lg:col-span-3">
@@ -30,31 +30,58 @@ export function StorySection() {
             ))}
           </div>
 
-          <div className="flex items-center justify-center lg:col-span-2">
-            <svg
-              viewBox="0 0 320 240"
+          <div className="relative flex items-center justify-center lg:col-span-2">
+            {/* Soft background panel + floating glow — gives the
+                illustration visual weight instead of floating alone
+                on plain white (Phase 6.0: "illustration area feels
+                empty" feedback). */}
+            <div
               aria-hidden="true"
-              className="h-auto w-full max-w-sm"
+              className="absolute h-64 w-64 animate-float rounded-full bg-navy-900/[0.06] blur-3xl sm:h-80 sm:w-80"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute h-48 w-48 rounded-full border border-gray-200 bg-gray-50/80"
+            />
+
+            <svg
+              viewBox="0 0 320 280"
+              aria-hidden="true"
+              className="relative h-auto w-full max-w-sm"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
+              {/* Growth-network motif: connected nodes rising left-to-right,
+                  echoing the "integrated system" narrative in قصتنا. */}
               <path
-                d="M20 200 C 70 180, 90 140, 130 130 S 190 90, 220 80 S 270 40, 300 30"
-                stroke="#C9A24B"
+                d="M20 220 L 100 180 L 160 195 L 220 130 L 300 60"
+                stroke="#8A0254"
+                strokeWidth="1.5"
+                strokeDasharray="6 8"
+                className="animate-dash-flow"
+              />
+              <path
+                d="M100 180 L 160 130 L 220 130"
+                stroke="#2A1730"
+                strokeOpacity="0.5"
+                strokeWidth="1.5"
+                strokeDasharray="6 8"
+                className="animate-dash-flow"
+              />
+              <path
+                d="M20 220 C 70 200, 90 160, 130 150 S 190 100, 220 90 S 270 50, 300 30"
+                stroke="#8A0254"
+                strokeOpacity="0.3"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              <path
-                d="M20 220 C 80 210, 120 190, 160 175 S 230 140, 300 100"
-                stroke="#C9A24B"
-                strokeOpacity="0.35"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <circle cx="300" cy="30" r="5" fill="#C9A24B" />
-              <circle cx="220" cy="80" r="3.5" fill="#C9A24B" fillOpacity="0.7" />
-              <circle cx="130" cy="130" r="3.5" fill="#C9A24B" fillOpacity="0.7" />
-              <circle cx="20" cy="200" r="3.5" fill="#C9A24B" fillOpacity="0.7" />
+
+              <circle cx="300" cy="60" r="6" fill="#8A0254" />
+              <circle cx="220" cy="130" r="5" fill="#8A0254" fillOpacity="0.85" />
+              <circle cx="160" cy="195" r="4.5" fill="#2A1730" fillOpacity="0.8" />
+              <circle cx="100" cy="180" r="4.5" fill="#8A0254" fillOpacity="0.7" />
+              <circle cx="20" cy="220" r="4.5" fill="#8A0254" fillOpacity="0.6" />
+              <circle cx="160" cy="130" r="3.5" fill="#2A1730" fillOpacity="0.6" />
             </svg>
           </div>
         </div>

@@ -17,12 +17,17 @@ import { CountUp } from "@/components/ui/CountUp";
 export function MetricsSection() {
   return (
     <Section background="navy" id="metrics">
+      {/* Soft blends into the neighboring sections (white above,
+          gray-50 below) instead of a hard color cut — part of the
+          "one continuous experience" pass. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-gray-50" />
       <Container>
-        <EyebrowLabel number="٠٩" inverted latin>
-          KEY METRICS
+        <EyebrowLabel inverted>
+          أرقامنا
         </EyebrowLabel>
-        <h2 className="mt-4 font-arabic text-h2 text-white">مؤشرات النجاح</h2>
-        <p className="mt-4 max-w-2xl font-arabic text-body text-gray-200">
+        <h2 className="mt-5 font-arabic text-h2 text-white">مؤشرات النجاح</h2>
+        <p className="mt-5 max-w-2xl font-arabic text-body text-gray-200">
           نتائج حقيقية وقابلة للقياس تعكس التزامنا بنجاح عملائنا
         </p>
 

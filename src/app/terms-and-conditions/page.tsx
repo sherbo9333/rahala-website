@@ -47,7 +47,7 @@ export default function TermsAndConditionsPage() {
       />
       <Section background="white" id="terms-hero">
         <Container>
-          <PageHeader eyebrow="TERMS & CONDITIONS" eyebrowLatin title={title} description={description} />
+          <PageHeader eyebrow="معلومات قانونية" title={title} description={description} />
           <p className="mt-6 font-arabic text-sm text-gray-300">آخر تحديث: [تاريخ آخر تحديث]</p>
         </Container>
       </Section>

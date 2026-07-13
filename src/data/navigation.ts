@@ -70,7 +70,7 @@ export const aboutAnchors = [
 /** SOURCE OF TRUTH: Company Profile PDF, Contact slide. */
 export const contactInfo = {
   location: "الرياض، المملكة العربية السعودية",
-  website: "www.rahala.sa",
-  email: "info@rahala.sa",
+  website: "resalaagency.com",
+  email: "info@resalaagency.com",
   phone: "+966 54 668 7283",
 };

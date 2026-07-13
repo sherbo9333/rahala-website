@@ -28,12 +28,12 @@ function ServiceCardComponent({ service }: ServiceCardProps) {
   return (
     <Card className="h-full">
       <Link href={service.href} className="flex h-full flex-col">
-        <IconBadge icon={service.icon} tone="blue" size="lg" className="mb-5" />
+        <IconBadge icon={service.icon} tone="navy" size="lg" className="mb-5" />
         <h3 className="font-arabic text-h3 text-navy-900">{service.label}</h3>
         <p className="mt-2 flex-1 font-arabic text-[15px] leading-relaxed text-gray-500">
           {service.description}
         </p>
-        <span className="mt-5 inline-flex items-center gap-2 font-arabic text-sm font-semibold text-blue-600">
+        <span className="mt-5 inline-flex items-center gap-2 font-arabic text-sm font-semibold text-gold-600">
           اعرف المزيد
           <ArrowLeft size={16} aria-hidden="true" className="transition-transform duration-200 group-hover:-translate-x-1" />
         </span>

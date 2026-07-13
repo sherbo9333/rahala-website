@@ -12,7 +12,7 @@ import { Layers, Users, ClipboardList, MapPin, Cpu, CalendarCheck } from "lucide
  * المحلية والمعايير العالمية في منظومة متكاملة تضع مصلحة عملك أولًا."
  */
 export const whyRahalaHero = {
-  eyebrow: "WHY RAHALA",
+  eyebrow: "لماذا نحن",
   title: "لماذا رسالة؟",
   description: "أكثر من مجرد وكالة... شريك استراتيجي للنمو",
 };

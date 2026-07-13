@@ -44,8 +44,7 @@ export default function NotFound() {
           <div className="relative flex flex-col items-center">
             <Compass size={40} strokeWidth={1.25} className="mb-6 text-gold-400" aria-hidden="true" />
             <PageHeader
-              eyebrow="404"
-              eyebrowLatin
+              eyebrow="٤٠٤"
               title="الصفحة التي تبحث عنها غير موجودة"
               description="يبدو أنك سلكت طريقًا غير مألوف في رحلتك — دعنا نعيدك إلى المسار الصحيح."
               align="center"

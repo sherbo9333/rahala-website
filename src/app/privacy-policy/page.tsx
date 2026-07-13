@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
       />
       <Section background="white" id="privacy-hero">
         <Container>
-          <PageHeader eyebrow="PRIVACY POLICY" eyebrowLatin title={title} description={description} />
+          <PageHeader eyebrow="معلومات قانونية" title={title} description={description} />
           <p className="mt-6 font-arabic text-sm text-gray-300">آخر تحديث: [تاريخ آخر تحديث]</p>
         </Container>
       </Section>

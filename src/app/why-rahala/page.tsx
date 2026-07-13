@@ -56,7 +56,7 @@ export default function WhyRahalaPage() {
       />
       <Section background="white" id="why-rahala-hero">
         <Container>
-          <PageHeader eyebrow={whyRahalaHero.eyebrow} eyebrowLatin number="٠٨" title={title} description={description} />
+          <PageHeader eyebrow={whyRahalaHero.eyebrow} title={title} description={description} />
         </Container>
       </Section>
 
@@ -71,11 +71,11 @@ export default function WhyRahalaPage() {
 
       <Section background="white" id="competitive-advantages">
         <Container>
-          <EyebrowLabel number="١١" latin>
-            ADVANTAGES
+          <EyebrowLabel>
+            مزايانا
           </EyebrowLabel>
-          <h2 className="mt-4 font-arabic text-h2 text-navy-900">مزايانا التنافسية</h2>
-          <p className="mt-4 max-w-2xl font-arabic text-body text-gray-500">{competitiveAdvantagesSubhead}</p>
+          <h2 className="mt-5 font-arabic text-h2 text-navy-900">مزايانا التنافسية</h2>
+          <p className="mt-5 max-w-2xl font-arabic text-body text-gray-500">{competitiveAdvantagesSubhead}</p>
 
           <div className="mt-12">
             <CompetitiveAdvantagesSection />

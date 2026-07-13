@@ -49,7 +49,7 @@ export default function IndustriesPage() {
       />
       <Section background="white" id="industries-hero">
         <Container>
-          <PageHeader eyebrow="INDUSTRIES" eyebrowLatin number="١٠" title={title} description={description} />
+          <PageHeader eyebrow="خبرتنا" title={title} description={description} />
         </Container>
       </Section>
 

@@ -15,9 +15,9 @@ export function MissionSection() {
     <Section background="white" id="mission" className="text-center">
       <Container>
         <div className="flex justify-center">
-          <EyebrowLabel number="٠٣">رسالتنا</EyebrowLabel>
+          <EyebrowLabel>رسالتنا</EyebrowLabel>
         </div>
-        <h2 className="mt-4 font-arabic text-h2 text-navy-900">رسالتنا</h2>
+        <h2 className="mt-5 font-arabic text-h2 text-navy-900">رسالتنا</h2>
 
         <p className="mx-auto mt-6 max-w-3xl font-arabic text-xl leading-relaxed text-gray-500">
           {mission}
@@ -26,7 +26,7 @@ export function MissionSection() {
         <div className="mx-auto mt-14 flex max-w-3xl flex-col divide-y divide-gray-200 sm:flex-row sm:divide-x sm:divide-y-0 sm:divide-x-reverse">
           {missionPillars.map((pillar) => (
             <div key={pillar.label} className="flex flex-1 flex-col items-center gap-2 px-6 py-6 sm:py-0">
-              <pillar.icon size={22} aria-hidden="true" className="text-blue-600" strokeWidth={1.75} />
+              <pillar.icon size={22} aria-hidden="true" className="text-navy-900" strokeWidth={1.75} />
               <p className="font-arabic text-base font-semibold text-navy-900">{pillar.label}</p>
               <p className="font-arabic text-sm text-gray-500">{pillar.description}</p>
             </div>

@@ -26,8 +26,8 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: "#0B1220",
-          900: "#0B1220",
+          DEFAULT: "#2A1730",
+          900: "#2A1730",
         },
         blue: {
           DEFAULT: "#2952E3",
@@ -38,18 +38,25 @@ const config: Config = {
           400: "#3DD9EB",
         },
         gold: {
-          DEFAULT: "#C9A24B",
-          400: "#C9A24B",
-          /** WCAG contrast fix (Phase 5.12 audit): gold-400 is only
-           * 2.4:1 against white — fails AA even for large text. This
-           * darker shade on the same hue passes 5.94:1 on white while
-           * still reading as the brand's gold accent. Use 600 for gold
-           * text on light backgrounds; 400 remains correct for gold
-           * text on navy (7.8:1, already passes). */
-          600: "#7D5F23",
+          DEFAULT: "#8A0254",
+          /** Phase 6.5: migrated from the old navy/gold palette to the
+           * real brand palette extracted directly (pixel-sampled) from
+           * the official Company Profile PDF — deep plum/near-black
+           * base + a vivid magenta accent, no gold anywhere in the
+           * source material. Token *names* ("navy", "gold") are kept
+           * as-is deliberately: renaming them would mean touching
+           * every one of the ~40 files that reference these classes,
+           * where changing only the values here cascades everywhere
+           * automatically. 400 is the lighter accent for dark
+           * backgrounds (6.49:1 on the new navy — was gold-400's role
+           * on the old navy); 600 is the vivid magenta for light
+           * backgrounds (9.47:1 on white — was gold-600's role, and
+           * comfortably beats the old gold-600's 5.94:1). */
+          400: "#D48CB3",
+          600: "#8A0254",
         },
         gray: {
-          50: "#F5F7FA",
+          50: "#FAF5F8",
           200: "#E2E8F0",
           300: "#CBD5E1",
           500: "#64748B",
@@ -64,8 +71,8 @@ const config: Config = {
       fontSize: {
         "display-lg": ["4rem", { lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: "700" }], // 64px hero H1
         "display-md": ["3rem", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }], // 48px page H1
-        h2: ["2.5rem", { lineHeight: "1.2", fontWeight: "700" }], // 40px
-        h3: ["1.375rem", { lineHeight: "1.35", fontWeight: "600" }], // 22px
+        h2: ["2.75rem", { lineHeight: "1.15", fontWeight: "700" }], // 44px
+        h3: ["1.5rem", { lineHeight: "1.3", fontWeight: "600" }], // 24px
         body: ["1.0625rem", { lineHeight: "1.6" }], // 17px, 1.8 for Arabic set via .font-arabic
         caption: ["0.8125rem", { lineHeight: "1.4", letterSpacing: "0.08em", fontWeight: "600" }], // 13px eyebrow
       },
@@ -89,6 +96,7 @@ const config: Config = {
         soft: "0 8px 30px rgba(11, 18, 32, 0.08)",
         "soft-lg": "0 12px 32px rgba(11, 18, 32, 0.12)",
         "glow-cyan": "0 0 20px rgba(61, 217, 235, 0.35)",
+        "glow-gold": "0 0 24px rgba(201, 162, 75, 0.35)",
       },
       transitionTimingFunction: {
         "ease-out-soft": "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -106,11 +114,36 @@ const config: Config = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(-24px) scale(1.06)" },
+        },
+        "float-reverse": {
+          "0%, 100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(20px) scale(1.08)" },
+        },
+        "dash-flow": {
+          "0%": { strokeDashoffset: "40" },
+          "100%": { strokeDashoffset: "0" },
+        },
+        ripple: {
+          "0%": { transform: "scale(0.7)", opacity: "0.55" },
+          "100%": { transform: "scale(2.4)", opacity: "0" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
+          "50%": { opacity: "0.9", transform: "scale(1.12)" },
+        },
       },
       animation: {
         "fade-rise": "fade-rise 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "spin-slow": "spin-slow 20s linear infinite",
         marquee: "marquee 40s linear infinite",
+        float: "float 9s ease-in-out infinite",
+        "float-reverse": "float-reverse 11s ease-in-out infinite",
+        "dash-flow": "dash-flow 2.5s linear infinite",
+        ripple: "ripple 3.5s cubic-bezier(0.16, 1, 0.3, 1) infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
       },
     },
   },

@@ -35,19 +35,19 @@ export default async function OgImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0B1220",
+          background: "#2A1730",
         }}
       >
-        <div style={{ display: "flex", color: "#C9A24B", fontSize: 28, letterSpacing: 4 }}>
+        <div style={{ display: "flex", color: "#8A0254", fontSize: 28, letterSpacing: 4 }}>
           RAHALA DIGITAL GROWTH
         </div>
         <div style={{ display: "flex", color: "#FFFFFF", fontSize: 130, fontFamily: "IBM Plex Sans Arabic", marginTop: 16 }}>
           رسالة
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "24px 0" }}>
-          <div style={{ width: 40, height: 2, background: "#C9A24B" }} />
-          <div style={{ width: 6, height: 6, borderRadius: 999, background: "#C9A24B" }} />
-          <div style={{ width: 40, height: 2, background: "#C9A24B" }} />
+          <div style={{ width: 40, height: 2, background: "#8A0254" }} />
+          <div style={{ width: 6, height: 6, borderRadius: 999, background: "#8A0254" }} />
+          <div style={{ width: 40, height: 2, background: "#8A0254" }} />
         </div>
         <div
           style={{ display: "flex", color: "#FFFFFF", fontSize: 34, fontFamily: "IBM Plex Sans Arabic" }}
