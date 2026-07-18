@@ -48,6 +48,12 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
  *  - disabled: 50% opacity, no pointer events, no lift/shadow
  *  - min-h-11 (44px) guarantees a compliant tap target at every size
  *
+ * Phase 6.6 (final polish): primary variant gets a soft light sweep
+ * across the fill on hover — the same premium "shine" cue the Hero's
+ * own CTA uses, implemented here in the shared component so every
+ * primary button site-wide carries it, not just Hero's one-off. Kept
+ * to the primary variant only (restraint): ghost buttons stay plain.
+ *
  * Renders a Next.js <Link> when `href` is passed, otherwise a <button>,
  * so this one component covers every CTA in the spec without duplicating
  * styles between navigational and action buttons.
@@ -55,7 +61,7 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   ({ variant = "primary", size = "lg", className, children, href, ...props }, ref) => {
     const base = cn(
-      "inline-flex min-h-11 items-center justify-center gap-2 rounded-button font-display font-semibold",
+      "group relative inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-button font-display font-semibold",
       "transition-all duration-[250ms] ease-out-soft",
       "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600",
@@ -70,6 +76,18 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
       className
     );
 
+    const content = (
+      <>
+        <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+        {variant === "primary" && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -translate-x-[150%] skew-x-[-12deg] bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-shine"
+          />
+        )}
+      </>
+    );
+
     if (href) {
       return (
         <Link
@@ -78,14 +96,14 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
           className={base}
           {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         >
-          {children}
+          {content}
         </Link>
       );
     }
 
     return (
       <button ref={ref as React.Ref<HTMLButtonElement>} className={base} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
-        {children}
+        {content}
       </button>
     );
   }

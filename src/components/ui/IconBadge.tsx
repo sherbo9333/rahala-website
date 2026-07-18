@@ -5,10 +5,10 @@ interface IconBadgeProps {
   icon: LucideIcon;
   className?: string;
   /** navy is the default neutral tone; gold is reserved for emphasis
-   * only (per the brand's "gold as accent, not a primary color" rule). */
+   * only (per the brand's "accent, not a primary color" rule). */
   tone?: "navy" | "gold";
-  /** On dark (navy) backgrounds, gold needs its lighter shade to keep
-   * contrast — same pattern as EyebrowLabel's `inverted` prop. */
+  /** On dark (navy) backgrounds, the accent needs its lighter shade to
+   * keep contrast — same pattern as EyebrowLabel's `inverted` prop. */
   inverted?: boolean;
   /** md/lg are the spec sizes (40/48px). xl (80px) is an extension for
    * the Services page's expanded detail rows — same visual language,
@@ -18,18 +18,17 @@ interface IconBadgeProps {
 
 /**
  * Component Library Reference — Icon badge.
- * Spec: 40-48px circle, tinted background, icon color matching tone.
  *
- * Phase 6.3: renamed the default tone from "blue" to "navy" and
- * changed its actual colors to match — the brand palette is Deep
- * Navy / White / Warm Gold, with gold reserved strictly for emphasis,
- * so a "blue" tone as the site-wide default was both misnamed and
- * off-brand. Every card icon on the site uses this default tone.
+ * Phase 6.6 (final polish): added a soft blurred glow halo behind the
+ * tinted circle, fading in on the parent card's hover — the same
+ * "glowing node" language the Hero uses for its network (an SVG blur
+ * filter on each point), reproduced here cheaply in CSS so every
+ * card icon on the site now carries a little of that same depth
+ * instead of being a flat tinted circle. Restrained: the glow is
+ * invisible at rest and only ~15-25% opacity even at its peak.
  *
- * Hover polish: scales to 1.08 when the nearest `group` ancestor
- * (typically a Card) is hovered — the icon reacts to the card being
- * hovered rather than needing its own separate hover target, which
- * would fight with the card's own hover area.
+ * Hover polish: the circle itself still scales to 1.08 when the
+ * nearest `group` ancestor (typically a Card) is hovered.
  *
  * Marked aria-hidden since it is always paired with adjacent visible
  * text (title/label) — the icon is decorative, not the accessible name.
@@ -39,18 +38,23 @@ export function IconBadge({ icon: Icon, className, tone = "navy", inverted = fal
   const iconSizeMap = { md: 20, lg: 24, xl: 36 } as const;
 
   return (
-    <div
-      aria-hidden="true"
-      className={cn(
-        "flex items-center justify-center rounded-full shrink-0",
-        "transition-transform duration-200 ease-out group-hover:scale-[1.08]",
-        sizeMap[size],
-        tone === "navy" && "bg-navy-900/[0.07] text-navy-900",
-        tone === "gold" && (inverted ? "bg-gold-400/15 text-gold-400" : "bg-gold-600/10 text-gold-600"),
-        className
-      )}
-    >
-      <Icon size={iconSizeMap[size]} strokeWidth={1.75} />
+    <div aria-hidden="true" className={cn("relative flex shrink-0 items-center justify-center", sizeMap[size], className)}>
+      <div
+        className={cn(
+          "absolute inset-0 rounded-full opacity-0 blur-md transition-opacity duration-300 ease-out-soft group-hover:opacity-100",
+          tone === "navy" && "bg-navy-900/15",
+          tone === "gold" && (inverted ? "bg-gold-400/25" : "bg-gold-600/20")
+        )}
+      />
+      <div
+        className={cn(
+          "relative flex h-full w-full items-center justify-center rounded-full transition-transform duration-200 ease-out-soft group-hover:scale-[1.08]",
+          tone === "navy" && "bg-navy-900/[0.07] text-navy-900",
+          tone === "gold" && (inverted ? "bg-gold-400/15 text-gold-400" : "bg-gold-600/10 text-gold-600")
+        )}
+      >
+        <Icon size={iconSizeMap[size]} strokeWidth={1.75} />
+      </div>
     </div>
   );
 }

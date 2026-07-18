@@ -98,7 +98,11 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div role="status" className="rounded-card border border-gray-200 bg-white p-10 text-center shadow-soft">
+      <div role="status" className="relative overflow-hidden rounded-card border border-gray-200 bg-white p-10 text-center shadow-soft">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-navy-900/[0.08] to-transparent"
+        />
         <h3 className="font-arabic text-h3 text-navy-900">شكرًا لتواصلك معنا</h3>
         <p className="mt-3 font-arabic text-body text-gray-500">
           استلمنا رسالتك وسنعاود التواصل معك في أقرب وقت ممكن.
@@ -108,7 +112,11 @@ export function ContactForm() {
   }
 
   return (
-    <form className="rounded-card border border-gray-200 bg-white p-6 shadow-soft md:p-10" onSubmit={handleSubmit} noValidate>
+    <form className="relative overflow-hidden rounded-card border border-gray-200 bg-white p-6 shadow-soft md:p-10" onSubmit={handleSubmit} noValidate>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-navy-900/[0.08] to-transparent"
+      />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
@@ -123,7 +131,7 @@ export function ContactForm() {
             onChange={(e) => updateField("name", e.target.value)}
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className={cn(inputBaseClass, errors.name ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-navy-900")}
+            className={cn(inputBaseClass, errors.name ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-gold-600")}
           />
           {errors.name && (
             <p id="name-error" role="alert" className="mt-1.5 font-arabic text-sm text-red-500">
@@ -143,7 +151,7 @@ export function ContactForm() {
             autoComplete="organization"
             value={values.company}
             onChange={(e) => updateField("company", e.target.value)}
-            className={cn(inputBaseClass, "border-gray-200 focus:border-navy-900")}
+            className={cn(inputBaseClass, "border-gray-200 focus:border-gold-600")}
           />
         </div>
 
@@ -164,7 +172,7 @@ export function ContactForm() {
             className={cn(
               inputBaseClass,
               "text-right",
-              errors.email ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-navy-900"
+              errors.email ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-gold-600"
             )}
           />
           {errors.email && (
@@ -186,7 +194,7 @@ export function ContactForm() {
             dir="ltr"
             value={values.phone}
             onChange={(e) => updateField("phone", e.target.value)}
-            className={cn(inputBaseClass, "text-right border-gray-200 focus:border-navy-900")}
+            className={cn(inputBaseClass, "text-right border-gray-200 focus:border-gold-600")}
           />
         </div>
 
@@ -200,7 +208,7 @@ export function ContactForm() {
               name="service"
               value={values.service}
               onChange={(e) => updateField("service", e.target.value)}
-              className={cn(inputBaseClass, "appearance-none pe-10 border-gray-200 focus:border-navy-900")}
+              className={cn(inputBaseClass, "appearance-none pe-10 border-gray-200 focus:border-gold-600")}
             >
               <option value="" disabled>
                 اختر الخدمة التي تهمك
@@ -235,7 +243,7 @@ export function ContactForm() {
             className={cn(
               inputBaseClass,
               "resize-none",
-              errors.message ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-navy-900"
+              errors.message ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-gold-600"
             )}
           />
           {errors.message && (

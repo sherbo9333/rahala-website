@@ -18,15 +18,22 @@ interface CardProps {
  * border brightens slightly — smooth 300ms transition (a touch slower
  * than the button's 250ms since the card travels further).
  *
+ * Phase 6.6 (final polish): added a hairline top highlight (a soft
+ * white-to-transparent gradient sliver along the top edge — the
+ * "glass catching light" cue) and switched the hover shadow from a
+ * flat gray tint to a brand-navy tint, so Card's depth reads as part
+ * of the same visual family as the Hero's glows rather than a
+ * generic neutral drop-shadow.
+ *
  * Always carries the `group` class (harmless when unused) so a nested
- * IconBadge can cascade its own hover scale off the card's hover state
- * instead of needing its own mouse listeners.
+ * IconBadge can cascade its own hover scale/glow off the card's hover
+ * state instead of needing its own mouse listeners.
  */
 export function Card({ children, className, emphasized = false, variant = "light", hoverable = true }: CardProps) {
   return (
     <div
       className={cn(
-        "group rounded-card p-6 md:p-8 shadow-soft transition-all duration-300 ease-out-soft",
+        "group relative overflow-hidden rounded-card p-6 shadow-soft transition-all duration-300 ease-out-soft md:p-8",
         variant === "light" && "border border-gray-200",
         variant === "light" && !emphasized && hoverable && "hover:border-gray-300",
         variant === "light" && "bg-white",
@@ -38,6 +45,12 @@ export function Card({ children, className, emphasized = false, variant = "light
         className
       )}
     >
+      {variant === "light" && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-navy-900/[0.08] to-transparent"
+        />
+      )}
       {children}
     </div>
   );

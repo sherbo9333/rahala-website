@@ -65,11 +65,15 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed inset-0 z-50 flex flex-col bg-navy-900 lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-navy-900 lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="القائمة الرئيسية"
         >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-1/3 -top-1/4 h-[420px] w-[420px] rounded-full bg-gold-600/[0.08] blur-[100px]"
+          />
           <div className="flex items-center justify-between px-5 py-5">
             <Logo variant="white" />
             <button

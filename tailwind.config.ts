@@ -93,10 +93,10 @@ const config: Config = {
         content: "1280px",
       },
       boxShadow: {
-        soft: "0 8px 30px rgba(11, 18, 32, 0.08)",
-        "soft-lg": "0 12px 32px rgba(11, 18, 32, 0.12)",
+        soft: "0 8px 30px rgba(42, 23, 48, 0.08)",
+        "soft-lg": "0 12px 32px rgba(42, 23, 48, 0.12)",
         "glow-cyan": "0 0 20px rgba(61, 217, 235, 0.35)",
-        "glow-gold": "0 0 24px rgba(201, 162, 75, 0.35)",
+        "glow-gold": "0 0 24px rgba(138, 2, 84, 0.35)",
       },
       transitionTimingFunction: {
         "ease-out-soft": "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -134,6 +134,10 @@ const config: Config = {
           "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
           "50%": { opacity: "0.9", transform: "scale(1.12)" },
         },
+        shine: {
+          "0%": { transform: "translateX(-150%) skewX(-12deg)" },
+          "100%": { transform: "translateX(150%) skewX(-12deg)" },
+        },
       },
       animation: {
         "fade-rise": "fade-rise 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
@@ -144,6 +148,7 @@ const config: Config = {
         "dash-flow": "dash-flow 2.5s linear infinite",
         ripple: "ripple 3.5s cubic-bezier(0.16, 1, 0.3, 1) infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        shine: "shine 0.9s ease-out",
       },
     },
   },

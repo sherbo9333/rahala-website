@@ -56,7 +56,7 @@ export function StickySubNav({ items, className }: StickySubNavProps) {
     <nav
       aria-label="التنقل داخل الصفحة"
       className={cn(
-        "sticky top-20 z-30 border-b border-gray-200 bg-white/95 py-3 backdrop-blur-md",
+        "sticky top-20 z-30 bg-white/70 py-3 shadow-[0_1px_24px_rgba(42,23,48,0.06)] backdrop-blur-xl",
         className
       )}
     >

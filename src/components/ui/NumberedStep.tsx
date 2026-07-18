@@ -43,11 +43,15 @@ function NumberedStepComponent({
       </div>
       <div
         className={cn(
-          "rounded-card border bg-white p-6 shadow-soft transition-colors duration-300",
+          "relative overflow-hidden rounded-card border bg-white p-6 shadow-soft transition-all duration-300 ease-out-soft",
           isHorizontal ? "flex-1 p-5" : "w-full",
           emphasized ? "border-gold-400" : "border-gray-200"
         )}
       >
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-navy-900/[0.08] to-transparent"
+        />
         <h3 className={cn("font-arabic text-lg font-bold", emphasized ? "text-gold-600" : "text-navy-900")}>
           {title}
         </h3>

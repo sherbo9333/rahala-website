@@ -71,7 +71,7 @@ export function Header({ transparentOnTop }: HeaderProps) {
         className={cn(
           "sticky top-0 z-40 w-full transition-all duration-300 ease-out",
           solid
-            ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_24px_rgba(11,18,32,0.06)]"
+            ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_24px_rgba(42,23,48,0.06)]"
             : "bg-gradient-to-b from-navy-900/80 via-navy-900/40 to-transparent backdrop-blur-[2px]"
         )}
       >

@@ -259,3 +259,24 @@ Services (6 digital-growth services → 5 influencer-marketing services), About'
 - Industries and Methodology pages have no corresponding content in the new PDF at all — would need a decision on whether to remove them, or find a legitimate substitute rather than inventing content.
 
 **Recommend confirming two things before this is executed:** (1) Arabic adaptation of the new services/about copy, or a full English/LTR conversion; (2) what happens to the Industries and Methodology pages, which the new business model doesn't map onto directly.
+
+---
+
+## Phase 6.6 — Final Premium Polish (cohesion pass, no redesign)
+
+Per this phase's explicit scope: no content/layout/color changes — refined the shared primitives that cascade across every page, so a small number of component edits raised consistency site-wide without touching individual pages.
+
+### Real bug found and fixed: shadows didn't migrate with Phase 6.5's color change
+`shadow-soft`, `shadow-soft-lg`, `shadow-glow-gold`, and Header's inline shadow were defined as raw `rgba()` values, not Tailwind color tokens — so when Phase 6.5 changed the `navy`/`gold` token values, these shadows silently kept tinting everything with the *old* navy/gold RGB values. Fixed all four (in `tailwind.config.ts`, `globals.css`, and `Header.tsx`) to the new palette's actual RGB. Verified via a full sweep of the compiled CSS: zero old-palette references remain anywhere except inside the untouched Hero (confirmed by checksum, and confirmed the one remaining `rgba(11,18,32...)` match is specifically Hero's own vignette gradient).
+
+### Component refinements (cascade to every page automatically)
+- **`IconBadge`**: added a soft blurred glow halo behind the tinted circle, fading in on card hover — echoes the Hero's "glowing node" language (an SVG blur filter on each network point) in cheap CSS, on every card icon site-wide.
+- **`Card`**: added a hairline top highlight (glass catching light) and switched the hover shadow from a flat gray tint to the brand navy tint — same visual family as Hero's glows rather than a generic drop-shadow.
+- **`Button`**: primary variant now has a soft light sweep across the fill on hover (the same "shine" cue Hero's own CTA uses conceptually), implemented properly in the shared component so every primary button site-wide carries it.
+- **`NumberedStep`, `ContactForm`'s panels**: brought up to the same top-highlight treatment as Card, since these are raw bordered boxes that don't use the Card component directly and would otherwise look a step behind it.
+- **`ServicesMegaMenu`, `StickySubNav`**: upgraded from flat/light-blur white to the same glass language as the header (`bg-white/70`, `backdrop-blur-xl`), replacing hard borders with soft hairline gradients.
+- **`MobileMenu`**: added a soft atmospheric glow (matching Hero's ambient depth) instead of a flat navy fill.
+- **Form focus borders**: switched from navy to the brand's magenta accent for warmer, more intentional emphasis on the one interactive surface where a person is actively typing.
+
+### Build verification
+`tsc --noEmit` clean · `next build` — all 23 routes generate · `next lint` clean · verified in compiled output: IconBadge glow, Card highlight, and updated shadow colors all present; heading hierarchy and RTL intact; canonical URLs correctly on the new domain; Hero checksum unchanged throughout.
